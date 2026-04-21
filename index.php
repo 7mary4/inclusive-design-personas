@@ -63,7 +63,7 @@ $categoryOrder = ['Auditory', 'Cognitive', 'Intersectional', 'Mental Health', 'N
             <li>
               <article class="card-preview" aria-labelledby="card-title-<?= $card['id'] ?>">
                 <header class="card-preview__header">
-                  <span class="card-preview__category" aria-label="Category: <?= htmlspecialchars($categoryName) ?>">
+                  <span role="text" class="card-preview__category" aria-label="Category: <?= htmlspecialchars($categoryName) ?>">
                     <?= htmlspecialchars($categoryName) ?>
                   </span>
                   <h3 id="card-title-<?= $card['id'] ?>"><?= htmlspecialchars($card['title']) ?></h3>
