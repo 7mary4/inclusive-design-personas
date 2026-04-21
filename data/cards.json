@@ -1,0 +1,722 @@
+[
+  {
+    "id": 11,
+    "title": "Deaf",
+    "name": "Angela",
+    "backstory": "Angela, 34, Black, rents an apartment with her partner. Works remotely as a UX researcher and uses ASL as her primary language.",
+    "category": "Auditory",
+    "conditionDescription": "Deaf users rely on sign-language interpreters, captions, transcripts, and visual alerts to access information that hearing users receive passively and automatically. Audio content without a visual equivalent is simply inaccessible, including for those who identify as part of the Deaf community.",
+    "digitalChallenges": "Videos without captions, audio alerts without visual equivalents, and voice-only verification steps exclude Deaf users completely. Meeting transcripts that are unavailable or delayed remove access to real-time information. When critical product information is delivered through audio alone, there is no workaround. The content is inaccessible, not the user.",
+    "assistiveTechnologies": [
+      "Captions and subtitles",
+      "sign language interpretation tools",
+      "visual alert systems"
+    ],
+    "designConsiderations": "Never rely on audio alone. Every alert, confirmation, and notification needs a persistent visual equivalent. Ensure all video content has synchronized captions and a downloadable transcript. Visual alerts should appear inline, not just as sound.",
+    "aiPrompt": "You are designing and building a digital product for Deaf users, including those who identify as part of the Deaf community. Review the interface and: Identify every instance where audio is the sole means of conveying information. Ensure captions are available, accurate, and synchronized for all video and audio content. Replace audio-only alerts with persistent visual equivalents. Eliminate voice-only verification or authentication steps. Ensure meeting and video transcripts are available, not just captions. Validate WCAG 2.2 AA compliance for 1.2.1, 1.2.2, 1.2.4, and 1.4.2. Return: 1. Audio-only barriers and visual alternatives 2. Caption and transcript recommendations 3. Visual alert patterns 4. Engineering fixes for audio-dependent interactions",
+    "clinicalExamples": "Congenital deafness, sensorineural hearing loss, Usher syndrome",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#deaf"
+  },
+  {
+    "id": 12,
+    "title": "Hard of Hearing",
+    "name": "Priya",
+    "backstory": "Priya, 52, South Asian, owns a home in a suburban neighborhood. A self-employed accountant who wears hearing aids and manages her own books.",
+    "category": "Auditory",
+    "conditionDescription": "Partial hearing loss does not make audio content reliably accessible. Background noise, compression artifacts, or fast speech can make audio unintelligible even with hearing aids. Captions, adjustable audio controls, and visual reinforcement for alerts ensure content remains accessible across all hearing levels.",
+    "digitalChallenges": "Auto-played audio at fixed volume, captions that are absent or inaccurate, and notification systems that rely on sound alone all create barriers. Meeting transcripts that are unavailable or delayed compound the problem in real-time collaboration. Hard of hearing users may miss time-sensitive alerts or be unable to follow audio content without reliable visual alternatives.",
+    "assistiveTechnologies": [
+      "Hearing aids",
+      "captions and subtitles",
+      "amplified audio controls"
+    ],
+    "designConsiderations": "Pair every audio notification with a visible inline alert. Ensure volume controls are keyboard accessible and clearly labeled. Captions must be accurate and synchronized, not auto-generated without review. Never use sound as the only confirmation of an action.",
+    "aiPrompt": "You are designing and building a digital product for hard of hearing users. Review the interface and: Identify audio content that lacks accurate captions or transcripts. Ensure volume controls are keyboard accessible and clearly labeled. Replace sound-only notifications with visible, persistent visual alerts. Provide transcripts for all meeting and collaborative audio content. Validate WCAG 2.2 AA compliance for 1.2.1, 1.2.2, and 1.4.2. Return: 1. Audio accessibility gaps 2. Caption and transcript improvements 3. Notification design recommendations 4. Engineering patterns for audio-independent interactions",
+    "clinicalExamples": "Age-related hearing loss (presbycusis), noise-induced hearing loss, otosclerosis",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#hard-of-hearing"
+  },
+  {
+    "id": 36,
+    "title": "Noisy Environment",
+    "name": "Darius",
+    "backstory": "Darius, 27, Black, lives in a shared apartment near a busy transit hub. Commutes daily and manages his freelance invoices on his phone between stops.",
+    "category": "Auditory",
+    "conditionDescription": "A loud café, an open-plan office, or a crowded transit system makes audio-dependent interfaces unusable regardless of hearing ability. Alerts, confirmations, and instructional audio become inaccessible the moment the environment competes with the device speaker.",
+    "digitalChallenges": "Audio confirmations, voice prompts, and sound-only alerts become useless in noisy environments. Meeting transcripts are equally inaccessible when someone cannot reliably hear the audio feed. Users who cannot wear headphones or raise volume without disturbing others need every critical interaction to be fully operable and understandable through visual feedback alone.",
+    "assistiveTechnologies": [
+      "Captions and subtitles",
+      "visual notification systems",
+      "silent or vibration mode"
+    ],
+    "designConsiderations": "Design all critical feedback to be fully readable without sound. Use inline alerts, toast messages, and visible status indicators to communicate outcomes. Never assume audio confirmations are heard when a device speaker competes with the environment.",
+    "aiPrompt": "You are designing and building a digital product for users in environments where audio cannot be relied upon. Review the interface and: Identify every interaction that depends on audio feedback or sound alerts. Ensure all confirmations, errors, and status updates are conveyed visually. Provide captions and transcripts for all audio and video content. Support silent or vibration notification modes. Validate WCAG 2.2 AA compliance for 1.2.1, 1.2.2, and 1.4.2. Return: 1. Audio-dependent interaction risks 2. Visual feedback and alert patterns 3. Caption and transcript recommendations 4. Engineering fixes for sound-reliant flows",
+    "clinicalExamples": "Situational context, not a diagnosis. Common in open-plan workplaces, transit, and outdoor settings.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#noisy-environment"
+  },
+  {
+    "id": 19,
+    "title": "Brain Fog",
+    "name": "Pam",
+    "backstory": "Pam, 38, Middle Eastern, rents a home with her two children. Managing Long COVID symptoms while running a small online resale business from home.",
+    "category": "Cognitive",
+    "conditionDescription": "Brain fog is a symptom, not a diagnosis, commonly associated with Long COVID, fibromyalgia, autoimmune conditions, and chronic fatigue. It affects processing speed, word retrieval, and the ability to hold a sequence of steps in mind. Clarity, brevity, and forgiveness in design are essential.",
+    "digitalChallenges": "Complex navigation, dense instructions, and interfaces that require remembering previous steps without visual reference all compound the effects of brain fog. On difficult days, a task that was manageable last week may feel completely inaccessible without meaningful design support.",
+    "assistiveTechnologies": [
+      "Text-to-speech",
+      "reminder apps",
+      "screen magnifiers"
+    ],
+    "designConsiderations": "Minimize decisions per screen. Use progress indicators to show task position, autosave to remove fear of data loss, and plain language throughout. Avoid timed interactions and sessions that cannot be paused and resumed.",
+    "aiPrompt": "You are designing and building a digital product for people experiencing brain fog. Review the interface and: Identify flows that require sustained concentration or multi-step memory. Simplify navigation to reduce decisions required per screen. Use plain, direct language with no jargon. Support autosave and allow users to resume incomplete tasks easily. Validate WCAG 2.2 AA compliance for 2.2.1, 3.1.5, and 3.3.1. Return: 1. Cognitive load and complexity risks 2. Navigation simplification recommendations 3. Autosave and task resumption patterns 4. Engineering fixes for memory-dependent interactions",
+    "clinicalExamples": "Long COVID, cancer treatment, pregnancy/menopause, lack of sleep",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#brain-fog"
+  },
+  {
+    "id": 33,
+    "title": "Cognitive Overload",
+    "name": "Sam",
+    "backstory": "Sam, 45, white, owns a condo and works two jobs. Files taxes independently but finds dense financial interfaces difficult to navigate under stress.",
+    "category": "Cognitive",
+    "conditionDescription": "When information density exceeds processing capacity due to stress, complexity, or accumulated mental effort, decision-making degrades and errors increase. This is an experience that intersects with many disabilities and life contexts, and it signals where interface simplification creates the widest possible benefit.",
+    "digitalChallenges": "Too many options, long pages without clear hierarchy, and interfaces that surface all features at once overwhelm users before they can act. Cognitive overload leads to errors, abandoned tasks, and loss of confidence, particularly in high-stakes financial contexts where mistakes feel costly.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "focus mode browser extensions",
+      "text-to-speech"
+    ],
+    "designConsiderations": "Apply progressive disclosure so only relevant information appears at each step. Use expandable sections to collapse secondary content, clear headings to organize hierarchy, and plain action labels on all buttons and controls.",
+    "aiPrompt": "You are designing and building a digital product to reduce cognitive overload in high-stakes financial contexts. Review the interface and: Identify screens with excessive information density or too many simultaneous choices. Apply progressive disclosure to surface only what is needed at each step. Use clear visual hierarchy with headings, spacing, and grouping. Provide clear confirmation before irreversible actions. Validate WCAG 2.2 AA compliance for 1.3.1, 2.4.6, and 3.3.1. Return: 1. Information density and decision complexity risks 2. Progressive disclosure and hierarchy improvements 3. Error prevention and recovery patterns 4. Engineering recommendations for simplified layouts",
+    "clinicalExamples": "Situational and intersectional. Associated with stress, ADHD, anxiety, and high-demand environments.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#cognitive-overload"
+  },
+  {
+    "id": 18,
+    "title": "Learning Disability",
+    "name": "Tomasz",
+    "backstory": "Tomasz, 19, white, lives with his parents in a rural area. Recently started a part-time job and is setting up direct deposit for the first time.",
+    "category": "Cognitive",
+    "conditionDescription": "Learning disabilities span a wide range of conditions affecting reading, numeracy, sequencing, or processing speed. Interfaces that assume a standard pace, use jargon without explanation, or require multi-step reasoning without visual support can make routine financial tasks feel insurmountable.",
+    "digitalChallenges": "Unexplained financial terminology, multi-column layouts, and processes requiring users to track several steps simultaneously all increase difficulty. People with learning disabilities benefit from one task at a time, plain language, and visual cues that reinforce what to do next.",
+    "assistiveTechnologies": [
+      "Text-to-speech",
+      "symbol-based communication tools",
+      "screen magnifiers"
+    ],
+    "designConsiderations": "Break tasks into single steps with one question or action per screen. Use short field labels with helper text for context. Never rely on layout alone to convey meaning and avoid timed sessions entirely.",
+    "aiPrompt": "You are designing and building a digital product for people with learning disabilities. Review the interface and: Identify financial terminology lacking plain language explanation. Break multi-step processes into single, clearly sequenced tasks. Provide visual cues and icons that reinforce written instructions. Support adjustable reading pace with no timed interactions. Validate WCAG 2.2 AA compliance for 3.1.3, 3.1.5, 3.3.1, and 3.3.2. Return: 1. Language and complexity barriers 2. Step sequencing and layout improvements 3. Plain language and visual support recommendations 4. Engineering patterns for paced, linear task flows",
+    "clinicalExamples": "Dyscalculia, processing speed disorder, intellectual disability, non-verbal learning disability",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#learning-disability"
+  },
+  {
+    "id": 17,
+    "title": "Memory Loss",
+    "name": "Rosario",
+    "backstory": "Rosario, 71, Latina, lives alone in a senior housing community. Her daughter helps with finances, but Rosario wants to manage her own accounts independently.",
+    "category": "Cognitive",
+    "conditionDescription": "Forgetting where a task was left, what information was already entered, or how a previous step was completed is a daily reality. Autosave, progress indicators, session history, and confirmation summaries remove the need to hold process state in working memory.",
+    "digitalChallenges": "Sessions that expire without saving, forms that clear on error, and workflows with no visible progress all require users to hold context in memory. For people with memory loss, losing that context mid-task often means starting over, not continuing.",
+    "assistiveTechnologies": [
+      "Reminder and note-taking apps",
+      "password managers",
+      "text-to-speech"
+    ],
+    "designConsiderations": "Show progress at all times using step indicators. Pre-fill known data to reduce re-entry. Autosave throughout and surface a clear summary of previously entered information before final submission so nothing needs to be held in memory.",
+    "aiPrompt": "You are designing and building a digital product for people with memory loss. Review the interface and: Identify steps that require users to recall information from earlier in the flow. Ensure autosave is present throughout all multi-step workflows. Provide visible progress indicators showing where the user is and what remains. Avoid session timeouts that clear form data without warning. Validate WCAG 2.2 AA compliance for 3.3.1, 3.3.4, and 3.3.7. Return: 1. Memory-dependent interaction risks 2. Autosave and progress indicator patterns 3. Session and data persistence recommendations 4. Engineering implementation for re-entry minimization",
+    "clinicalExamples": "Mild cognitive impairment, early-stage Alzheimer's disease, vascular dementia, traumatic brain injury",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#memory-loss"
+  },
+  {
+    "id": 38,
+    "title": "Bright Light Usage",
+    "name": "Kofi",
+    "backstory": "Kofi, 40, Ghanaian American, rents a market stall and works outdoors. Uses his phone to invoice customers and check his business account throughout the day in direct sunlight.",
+    "category": "Intersectional",
+    "conditionDescription": "Reading a screen in direct sunlight, a bright office, or a high-glare environment reduces visibility for everyone. People who primarily use devices outdoors or in high-ambient-light settings depend on strong contrast, legible typography, and glare-resilient design.",
+    "digitalChallenges": "Low contrast interfaces, light gray text on white backgrounds, and designs that rely on subtle visual cues become completely unreadable in direct sunlight or high-glare environments. Without high contrast mode or a dark mode option, outdoor and bright-environment users are effectively excluded from completing tasks on the go.",
+    "assistiveTechnologies": [
+      "High contrast mode",
+      "dark mode",
+      "screen brightness controls"
+    ],
+    "designConsiderations": "Ensure all text meets WCAG AA contrast ratios at minimum. Support dark mode and high contrast mode as first-class options, not afterthoughts. Avoid light gray on white and other low-contrast combinations throughout the interface.",
+    "aiPrompt": "You are designing and building a digital product for users in bright light or high-glare environments. Review the interface and: Identify text and UI elements relying on low contrast or subtle color differences. Ensure all text meets WCAG AA contrast ratios. Support high contrast mode and dark mode as first-class options. Use bold, legible typography at sufficient size. Validate WCAG 2.2 AA compliance for 1.4.3, 1.4.6, and 1.4.11. Return: 1. Contrast and visibility risks 2. High contrast and dark mode patterns 3. Typography recommendations 4. Engineering fixes for glare-resilient UI",
+    "clinicalExamples": "Situational context. Also associated with photophobia, migraines, and post-surgical light sensitivity.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#bright-light"
+  },
+  {
+    "id": 39,
+    "title": "Device Constraints",
+    "name": "Nadira",
+    "backstory": "Nadira, 33, Somali American, shares a phone with her spouse. Uses an older Android device to manage household finances and file taxes for their small family business.",
+    "category": "Intersectional",
+    "conditionDescription": "Older phones, low-memory devices, and small screens are common in lower-income and global markets. People using constrained devices need lightweight, responsive experiences that do not require the latest hardware to access essential features.",
+    "digitalChallenges": "Heavy animations, large image assets, and JavaScript-dependent interactions can render a product unusable on older or low-memory devices. When essential features require the latest hardware or a fast connection, the product excludes users in lower-income and global markets who are often most in need of accessible financial tools.",
+    "assistiveTechnologies": [
+      "Built-in screen readers",
+      "keyboard navigation",
+      "OS accessibility settings"
+    ],
+    "designConsiderations": "Use responsive single-column layouts for small screens. Avoid heavy animations and large asset loads on key task screens. Test all critical tasks at 320px viewport width and ensure core functionality works without the latest browser features.",
+    "aiPrompt": "You are designing and building a digital product for users on constrained devices. Review the interface and: Identify JavaScript-heavy interactions that fail on low-memory devices. Optimize image and asset loading. Ensure core tasks are completable at 320px viewport width. Avoid animations that consume CPU unnecessarily. Validate WCAG 2.2 AA compliance for 1.4.4, 1.4.10, and 2.5.5. Return: 1. Performance and rendering risks 2. Asset optimization strategies 3. Responsive layout recommendations 4. Engineering fixes for lightweight experiences",
+    "clinicalExamples": "Situational and socioeconomic. Common in lower-income and global market contexts.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#device-constraints"
+  },
+  {
+    "id": 28,
+    "title": "Epilepsy",
+    "name": "Marcus",
+    "backstory": "Marcus, 22, Black, lives in a college dorm on financial aid. Managing photosensitive epilepsy while navigating student loan and financial aid platforms independently for the first time.",
+    "category": "Intersectional",
+    "conditionDescription": "Flashing content and rapid visual transitions can trigger seizures in people with photosensitive epilepsy. Safe digital experiences require predictable, stable visuals with no strobing or high-frequency animation, even in subtle UI elements.",
+    "digitalChallenges": "Flashing content, looping animations, and rapid visual transitions can trigger seizures without warning. Unlike most accessibility barriers, the consequence here is not frustration but physical harm. Interfaces that do not default to safe visual behavior put people with photosensitive epilepsy at direct risk.",
+    "assistiveTechnologies": [
+      "Reduced motion OS settings",
+      "browser content blockers",
+      "keyboard navigation"
+    ],
+    "designConsiderations": "Default all animations to off or minimal. Respect the prefers-reduced-motion media query as a safe starting state, not an opt-in. Never use flashing content, strobing effects, or rapidly cycling visuals anywhere in the interface.",
+    "aiPrompt": "You are designing and building a digital product safe for people with photosensitive epilepsy. Review the interface and: Identify content that flashes more than 3 times per second. Remove all strobing, flickering, or rapidly cycling visual elements. Apply prefers-reduced-motion as a default safe state. Test all animated components against WCAG photosensitivity thresholds. Validate WCAG 2.2 AA compliance for 2.3.1 and AAA 2.3.2. Return: 1. Seizure risk elements and frequency 2. Safe animation defaults 3. Testing methodology for photosensitive content 4. Engineering implementation for flash-safe UI",
+    "clinicalExamples": "Photosensitive epilepsy, juvenile myoclonic epilepsy, Dravet syndrome",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#epilepsy"
+  },
+  {
+    "id": 40,
+    "title": "Fatigue (Situational)",
+    "name": "Camille",
+    "backstory": "Camille, 51, white, owns a home and cares for an elderly parent. Completes financial tasks late at night after long caregiving days, with limited energy and focus.",
+    "category": "Intersectional",
+    "conditionDescription": "End-of-day exhaustion, caregiving demands, illness recovery, or burnout reduce a person's capacity to process complex tasks. Fatigued users make more errors, abandon sessions sooner, and need low-effort, forgiving interfaces that do not punish mistakes.",
+    "digitalChallenges": "Long forms, multi-step confirmation flows, and interfaces that do not save progress punish users whose available energy is limited. A task abandoned midway due to exhaustion may not be returned to. When design assumes sustained attention and effort, it fails users at the moments they are most vulnerable.",
+    "assistiveTechnologies": [
+      "Voice control",
+      "autofill and password managers",
+      "text-to-speech"
+    ],
+    "designConsiderations": "Reduce required inputs using autofill and pre-fill. Show users how much effort remains with a visible progress indicator. Allow tasks to be paused and resumed without data loss at any point in the workflow.",
+    "aiPrompt": "You are designing and building a digital product for users experiencing situational fatigue. Review the interface and: Identify workflows that cannot be paused and resumed. Implement autosave throughout all multi-step tasks. Minimize required inputs by pre-filling known information. Provide forgiving error recovery that does not clear entered data. Validate WCAG 2.2 AA compliance for 2.2.1, 3.3.1, and 3.3.7. Return: 1. Effort and complexity barriers 2. Autosave and task resumption patterns 3. Input minimization recommendations 4. Engineering fixes for low-effort, recoverable workflows",
+    "clinicalExamples": "Situational context. Also associated with caregiver burnout, shift work disorder, and postpartum fatigue.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#fatigue-situational"
+  },
+  {
+    "id": 37,
+    "title": "Low Bandwidth",
+    "name": "Marisol",
+    "backstory": "Marisol, 24, Latina, lives in a rural mobile home with inconsistent internet access. Manages her household budget on a prepaid phone with a limited data plan.",
+    "category": "Intersectional",
+    "conditionDescription": "Unreliable or slow internet access is a daily reality for people in rural areas, lower-income households, or regions with poor infrastructure. Bandwidth constraints shape what is usable, making performance and progressive loading a core accessibility concern.",
+    "digitalChallenges": "Pages that do not load, images that block text rendering, and interactions that time out under slow connections turn a routine task into an unreliable experience. When there is no offline fallback or graceful degradation, users on low bandwidth connections lose access entirely rather than experiencing a reduced but functional version.",
+    "assistiveTechnologies": [
+      "Offline-capable browsers",
+      "data-saving browser modes",
+      "screen readers"
+    ],
+    "designConsiderations": "Load core content and interactive components first before non-essential assets. Avoid autoplay video and large background images on key task screens. Ensure the interface remains functional and usable even when images fail to load.",
+    "aiPrompt": "You are designing and building a digital product for users with low bandwidth or unstable internet. Review the interface and: Identify resources that block rendering before interaction is possible. Implement progressive loading so core content is available immediately. Provide graceful degradation when assets fail to load. Support offline or cached states for key tasks. Validate WCAG 2.2 AA compliance for 2.2.1 and performance best practices. Return: 1. Render-blocking and heavy asset risks 2. Progressive loading and degradation patterns 3. Offline and retry state recommendations 4. Engineering fixes for bandwidth-resilient experiences",
+    "clinicalExamples": "Situational and socioeconomic. Common in rural, lower-income, and developing-region contexts.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#low-bandwidth"
+  },
+  {
+    "id": 32,
+    "title": "Low Literacy",
+    "name": "Clarence",
+    "backstory": "Clarence, 58, Black, rents a house in a rural community. Left school early to support his family and now uses mobile banking to manage his income for the first time.",
+    "category": "Intersectional",
+    "conditionDescription": "Reading financial content at a high literacy level is not universally possible. People managing low literacy, due to education, disability, or language background, need plain language, visual support, and clear step-by-step guidance to complete tasks with confidence.",
+    "digitalChallenges": "Long paragraphs, multi-clause instructions, and forms with unexplained fields create barriers that plain language would remove. When error messages do not explain what went wrong in simple terms, recovering from a mistake becomes as difficult as the original task. Visual support and short sentences make a measurable difference.",
+    "assistiveTechnologies": [
+      "Text-to-speech",
+      "symbol-based AAC tools",
+      "screen readers"
+    ],
+    "designConsiderations": "Use plain language at Grade 8 level or below throughout. Pair all labels with icons to reinforce meaning. Break instructions into one-idea-per-sentence format and avoid jargon in error messages, field labels, and confirmations.",
+    "aiPrompt": "You are designing and building a digital product for users with low literacy needs. Review the interface and: Identify content written above a Grade 8 reading level. Rewrite instructions, labels, and errors in plain language. Support text-to-speech for all content. Use icons and visual cues alongside text. Validate WCAG 2.2 AA compliance for 3.1.3, 3.1.5, and 3.3.2. Return: 1. Reading complexity and jargon risks 2. Plain language recommendations 3. Visual support and iconography patterns 4. Engineering fixes for readable, scannable content",
+    "clinicalExamples": "Situational and educational. Associated with limited formal education, dyslexia, and language barriers.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#low-literacy"
+  },
+  {
+    "id": 27,
+    "title": "Migraine Sensitivity",
+    "name": "Ifeoma",
+    "backstory": "Ifeoma, 44, Nigerian British, owns her home with her husband. A nurse who manages chronic migraines and needs to complete financial tasks quickly between shifts.",
+    "category": "Intersectional",
+    "conditionDescription": "Bright screens, flashing elements, and high-contrast patterns can trigger or worsen migraine episodes. People managing migraines may need to limit screen time entirely during an attack, making quick, low-stimulation task completion essential.",
+    "digitalChallenges": "Bright backgrounds, high-contrast flickering, and dense visual patterns can escalate a developing migraine or trigger one entirely. During an active episode, even brief screen exposure may be impossible. Tasks must be completable quickly, with low visual stimulation and no forced waiting.",
+    "assistiveTechnologies": [
+      "Dark mode",
+      "reduced motion OS settings",
+      "screen dimming tools"
+    ],
+    "designConsiderations": "Avoid bright white backgrounds and high-contrast strobing patterns. Support dark mode as a first-class option. Honor prefers-reduced-motion and ensure tasks can be completed in as few steps as possible during limited screen time.",
+    "aiPrompt": "You are designing and building a digital product for people with migraine sensitivity. Review the interface and: Identify flashing content, flickering elements, and high-frequency visual patterns. Support dark mode and low-brightness display options. Minimize required steps for limited screen time. Ensure all motion respects prefers-reduced-motion. Validate WCAG 2.2 AA compliance for 2.3.1 and 2.3.3. Return: 1. Visual trigger risks 2. Dark mode and low-stimulation design patterns 3. Task efficiency improvements 4. Engineering fixes for flicker and high-contrast motion",
+    "clinicalExamples": "Migraine with aura, chronic migraine, hemiplegic migraine, vestibular migraine",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#migraine-sensitivity"
+  },
+  {
+    "id": 26,
+    "title": "Motion Sensitivity",
+    "name": "Yuki",
+    "backstory": "Yuki, 31, Japanese American, rents a studio apartment. A graphic designer who experiences vestibular migraines and avoids animation-heavy interfaces when symptomatic.",
+    "category": "Intersectional",
+    "conditionDescription": "Scrolling, zooming, or animated interfaces can trigger dizziness, nausea, or disorientation. For people with vestibular disorders, migraine, or anxiety, motion in digital environments is not decorative. It can be a barrier that ends a session entirely.",
+    "digitalChallenges": "Parallax scrolling, animated transitions, and auto-playing carousels can trigger immediate physical symptoms. When there is no way to pause, reduce, or disable motion, the only option is to leave. Interfaces that ignore prefers-reduced-motion make participation conditional on tolerating discomfort.",
+    "assistiveTechnologies": [
+      "Reduced motion OS settings",
+      "screen readers",
+      "keyboard navigation"
+    ],
+    "designConsiderations": "Respect the prefers-reduced-motion media query on all animated components. Replace motion-based transitions with instant state changes. Provide an in-product control to disable animations independently of operating system settings.",
+    "aiPrompt": "You are designing and building a digital product for people with motion sensitivity. Review the interface and: Identify all animations, transitions, parallax effects, and auto-playing motion. Ensure prefers-reduced-motion disables or reduces all non-essential motion. Replace motion-based feedback with static visual alternatives. Avoid auto-playing carousels and looping animations. Validate WCAG 2.2 AA compliance for 2.3.3 and 2.2.2. Return: 1. Motion and animation risks 2. Reduced-motion implementation patterns 3. Static alternative feedback designs 4. Engineering fixes using prefers-reduced-motion",
+    "clinicalExamples": "Vestibular migraine, benign paroxysmal positional vertigo (BPPV), labyrinthitis, anxiety disorders",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#motion-sensitivity"
+  },
+  {
+    "id": 31,
+    "title": "Non-Native Speaker",
+    "name": "Ernie",
+    "backstory": "Ernie, 48, Chinese American, owns his home with his family. Navigates financial products primarily in English, his second language, often under time pressure.",
+    "category": "Intersectional",
+    "conditionDescription": "Navigating a financial product in a second language requires more cognitive effort, especially under pressure. Complex terminology, idioms, and dense instructions create real barriers for people whose primary language differs from the product's default language.",
+    "digitalChallenges": "Financial jargon, idiomatic error messages, and instructions written at a high reading level all compound the difficulty of completing tasks in a second language. When translation tools alter layout or truncate labels, the interface can become harder to use than the language itself.",
+    "assistiveTechnologies": [
+      "Translation and localization tools",
+      "text-to-speech",
+      "screen readers"
+    ],
+    "designConsiderations": "Use plain, jargon-free language in all labels and error messages. Set the correct lang attribute on the HTML element. Test all layouts with translated strings, which are often 30 to 50 percent longer than English source text.",
+    "aiPrompt": "You are designing and building a digital product for users whose primary language differs from the product default. Review the interface and: Identify idioms, culturally specific references, and untranslatable jargon. Ensure all UI labels and errors translate accurately without truncation. Set the correct lang attribute on the HTML element. Test layouts with translated strings that may be significantly longer. Validate WCAG 2.2 AA compliance for 3.1.1 and 3.1.2. Return: 1. Language and localization risks 2. Translation-safe label patterns 3. Layout recommendations for variable text length 4. Engineering fixes for multilingual and RTL support",
+    "clinicalExamples": "Situational and linguistic. Relevant across ESL, immigrant, and multilingual populations.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#non-native-speaker"
+  },
+  {
+    "id": 30,
+    "title": "One-Handed Use",
+    "name": "Aaliyah",
+    "backstory": "Aaliyah, 29, Black, lives in a transitional housing program with her toddler. Often uses her phone one-handed while managing her child and household finances simultaneously.",
+    "category": "Intersectional",
+    "conditionDescription": "Holding a phone while managing a child, an injury, or a physical task is a daily reality for many people. Interfaces that require two-handed gestures or simultaneous inputs create barriers for anyone operating with one hand, permanently or situationally.",
+    "digitalChallenges": "Pinch-to-zoom, two-finger swipe, and interactions requiring simultaneous touch inputs all fail when only one hand is available. Navigation elements clustered at the top of a screen become unreachable during single-handed mobile use. Tasks designed for two hands create unnecessary friction for a very large portion of everyday users.",
+    "assistiveTechnologies": [
+      "Voice control",
+      "switch access",
+      "keyboard navigation"
+    ],
+    "designConsiderations": "Place primary actions within the lower thumb zone on mobile. Size all touch targets to minimum 44x44px. Ensure every interaction has a single-tap alternative and avoid requiring simultaneous touch inputs at any point in the flow.",
+    "aiPrompt": "You are designing and building a digital product for users operating with one hand. Review the interface and: Identify interactions requiring simultaneous inputs or two-finger gestures. Position primary actions within the thumb-reachable zone. Provide single-tap alternatives for every multi-input interaction. Avoid long-press as the only trigger for important actions. Validate WCAG 2.2 AA compliance for 2.5.1 and 2.5.4. Return: 1. Two-handed interaction risks 2. Thumb-zone and single-tap patterns 3. Gesture alternative recommendations 4. Engineering fixes for single-input operability",
+    "clinicalExamples": "Situational context. Also associated with hemiplegia, stroke recovery, and limb difference.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#one-handed-use"
+  },
+  {
+    "id": 29,
+    "title": "Temporary Injury",
+    "name": "Hyun-ji",
+    "backstory": "Hyun-ji, 36, Korean American, rents an apartment with a roommate. Broke her dominant wrist and is using voice control to manage her finances during recovery.",
+    "category": "Intersectional",
+    "conditionDescription": "A broken wrist, eye surgery recovery, or repetitive strain injury temporarily changes how someone interacts with technology. These users need the same accessible alternatives available to permanent disability users, just discovered in an urgent, unexpected moment.",
+    "digitalChallenges": "A broken wrist or post-surgery hand means standard mouse and keyboard use may be unavailable for weeks. Most people in this situation have never used voice control or keyboard-only navigation before. When onboarding for assistive tools is unclear, the product becomes inaccessible exactly when it is needed most.",
+    "assistiveTechnologies": [
+      "Voice control",
+      "keyboard navigation",
+      "switch access"
+    ],
+    "designConsiderations": "Ensure all tasks are keyboard and voice operable from day one. Use visible focus indicators so keyboard position is always clear. Provide guidance to keyboard shortcuts for users encountering alternative navigation for the first time.",
+    "aiPrompt": "You are designing and building a digital product for users with a temporary injury affecting standard input. Review the interface and: Ensure all tasks are completable by keyboard only or voice control. Identify interactions assuming two-handed or fine motor input. Provide clear onboarding for alternative input methods. Ensure focus order is logical and all elements are reachable by Tab. Validate WCAG 2.2 AA compliance for 2.1.1, 2.1.2, and 2.5.1. Return: 1. Input dependency risks 2. Keyboard and voice navigation patterns 3. Alternative input onboarding recommendations 4. Engineering fixes for mouse-independent task completion",
+    "clinicalExamples": "Wrist fracture, repetitive strain injury (RSI), post-surgical recovery, concussion",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#temporary-injury"
+  },
+  {
+    "id": 21,
+    "title": "Anxiety",
+    "name": "Elizabeth",
+    "backstory": "Elizabeth, 41, white British, rents a flat in London. Works in tech and manages generalized anxiety, especially when navigating financial products with unclear consequences.",
+    "category": "Mental Health",
+    "conditionDescription": "High-stakes financial tasks compound existing anxiety. Unclear error messages, irreversible actions, ambiguous confirmations, and unpredictable system behavior all increase stress responses. Design that communicates clearly, confirms before acting, and reduces uncertainty directly lowers the cognitive and emotional cost of task completion.",
+    "digitalChallenges": "Alarming error language, unclear consequences of actions, and interfaces that do not confirm what just happened all increase anxiety. People with anxiety need to feel in control and informed at every step, and design that withholds clarity amplifies distress unnecessarily.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "keyboard navigation",
+      "focus mode browser extensions"
+    ],
+    "designConsiderations": "Use calm, factual language in all error messages and confirmations. Require explicit confirmation before destructive actions using a modal or confirmation dialog. Provide clear feedback after every action so users always know the current system state.",
+    "aiPrompt": "You are designing and building a digital product for people with anxiety in high-stakes financial contexts. Review the interface and: Identify error messages using alarming or ambiguous language. Ensure every destructive action requires explicit confirmation. Provide clear feedback after every user action. Use calm, plain, non-threatening language throughout. Validate WCAG 2.2 AA compliance for 3.3.1, 3.3.4, and 3.2.1. Return: 1. Alarming language and uncertainty risks 2. Confirmation and feedback patterns 3. Calm microcopy recommendations 4. Engineering fixes for predictable, low-pressure interactions",
+    "clinicalExamples": "Generalized anxiety disorder (GAD), social anxiety disorder, health anxiety, PTSD",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#anxiety"
+  },
+  {
+    "id": 23,
+    "title": "Bipolar Disorder",
+    "name": "Simone",
+    "backstory": "Simone, 35, Black, rents an apartment and works as a freelance writer. Manages bipolar disorder and needs financial interfaces that support both high-energy and low-energy days.",
+    "category": "Mental Health",
+    "conditionDescription": "Mood episodes affect energy, concentration, impulsivity, and risk tolerance in ways that shift over time. During depressive phases, low motivation and cognitive slowing make complex tasks difficult. During manic phases, impulsive decisions need guardrails. Consistent design, confirmation steps, and undo functionality support safe, autonomous use.",
+    "digitalChallenges": "Interfaces that allow irreversible financial actions without confirmation steps create real risk during manic episodes. During depressive episodes, the same person may struggle to initiate or complete those same tasks. Design must support both states without requiring the user to self-identify either.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "keyboard navigation",
+      "reminder apps"
+    ],
+    "designConsiderations": "Require confirmation for all high-value financial actions. Provide undo where possible. Keep workflows completable in short sessions with autosave protecting all partially completed work, supporting both high-energy and low-energy interaction modes.",
+    "aiPrompt": "You are designing and building a digital product for people with bipolar disorder. Review the interface and: Require explicit confirmation for all high-value or irreversible financial actions. Provide undo or reversal options wherever feasible. Break complex workflows into small, manageable steps. Ensure autosave protects partially completed work. Validate WCAG 2.2 AA compliance for 2.2.1, 3.3.4, and 3.2.2. Return: 1. Impulsivity and irreversibility risks 2. Confirmation and undo patterns 3. Low-effort workflow recommendations 4. Engineering guardrails for high-stakes financial actions",
+    "clinicalExamples": "Bipolar I disorder, Bipolar II disorder, cyclothymic disorder",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#bipolar-disorder"
+  },
+  {
+    "id": 24,
+    "title": "Depression",
+    "name": "Tariq",
+    "backstory": "Tariq, 30, South Asian, rents a room in a shared house. Starts financial tasks regularly but rarely finishes them, especially during low-motivation periods.",
+    "category": "Mental Health",
+    "conditionDescription": "Low energy, reduced motivation, and difficulty concentrating are not barriers to intent, they are barriers to completion. Long workflows, repetitive inputs, and high error costs create conditions where tasks are started but not finished. Streamlined flows, autosave, and plain encouraging language reduce the effort required to succeed.",
+    "digitalChallenges": "Multi-page workflows, re-entry of previously submitted information, and interfaces with no visible sense of progress all increase the effort required to push through. For people with depression, the gap between intending to complete a task and actually finishing it is where design can help most.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "text-to-speech",
+      "autofill and password managers"
+    ],
+    "designConsiderations": "Reduce steps to the minimum needed. Use progress indicators to show visible momentum through a task. Use encouraging, non-shaming language in error messages and avoid patterns that require significant effort to recover from mistakes.",
+    "aiPrompt": "You are designing and building a digital product for people with depression. Review the interface and: Identify workflows requiring more steps than necessary. Implement autosave so sessions can be resumed without data loss. Show visible progress indicators throughout multi-step flows. Use plain, encouraging language that does not shame errors. Validate WCAG 2.2 AA compliance for 2.2.1, 3.3.1, and 3.3.7. Return: 1. Effort and motivation barriers 2. Progress and autosave patterns 3. Encouraging microcopy recommendations 4. Engineering fixes for streamlined, low-effort task completion",
+    "clinicalExamples": "Major depressive disorder (MDD), persistent depressive disorder (dysthymia), postpartum depression",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#depression"
+  },
+  {
+    "id": 22,
+    "title": "Panic Disorder",
+    "name": "Devon",
+    "backstory": "Devon, 26, mixed race, lives with family while saving to move out. Avoids financial platforms that feel urgent or overwhelming, often abandoning tasks mid-session.",
+    "category": "Mental Health",
+    "conditionDescription": "A panic attack can occur without warning and end a session immediately. Interfaces that feel urgent, use alarming error language, or present too much information at once can trigger or escalate distress. Calm, predictable, and low-pressure design patterns create safer conditions for task completion.",
+    "digitalChallenges": "Countdown timers, urgent warning messages, and high-density screens can escalate physical and psychological distress rapidly. People with panic disorder need interfaces that communicate without urgency, provide clear exits, and never make a user feel trapped or rushed into a decision.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "keyboard navigation",
+      "focus mode browser extensions"
+    ],
+    "designConsiderations": "Remove countdown timers and urgency-inducing language. Ensure every screen has a clearly visible way to exit or go back. Offer session extension before timeouts occur rather than ending the session abruptly without warning.",
+    "aiPrompt": "You are designing and building a digital product for people with panic disorder. Review the interface and: Remove or replace countdown timers and urgency-inducing UI patterns. Ensure every screen has a clear, visible exit or back path. Use calm, measured language in all system messages. Provide session extension options before any timeout. Validate WCAG 2.2 AA compliance for 2.2.1, 2.2.4, and 3.3.4. Return: 1. Urgency and pressure trigger risks 2. Calm interaction and exit patterns 3. Microcopy tone improvements 4. Engineering fixes for low-pressure, escapable flows",
+    "clinicalExamples": "Panic disorder with or without agoraphobia",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#panic-disorder"
+  },
+  {
+    "id": 25,
+    "title": "Sobriety",
+    "name": "Ray",
+    "backstory": "Ray, 47, Native American, lives in supported housing during recovery. Managing finances again after years away and needs calm, shame-free product experiences.",
+    "category": "Mental Health",
+    "conditionDescription": "Recovery from substance use intersects with digital access in ways that are often overlooked. Content that normalizes alcohol, financial stress triggers, or high-pressure decision environments can be destabilizing. Trauma-informed design, content sensitivity, and predictable low-stress interactions support users managing long-term recovery.",
+    "digitalChallenges": "Financial products that surface debt reminders, overdue notices, or high-pressure upsell prompts without care can act as stress triggers. People in recovery need interfaces that communicate clearly and calmly, avoid shame-based language, and do not create urgency that feels impossible to manage.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "keyboard navigation",
+      "content filtering tools"
+    ],
+    "designConsiderations": "Apply trauma-informed design throughout. Deliver debt notices and overdue alerts using calm, constructive messaging without shame-based language. Give users meaningful control over when and how sensitive financial information is surfaced to them.",
+    "aiPrompt": "You are designing and building a digital product using trauma-informed design principles for people managing sobriety. Review the interface and: Identify shame-based, urgent, or high-pressure language around finances. Ensure debt notices and upsell prompts are delivered calmly. Avoid normalizing alcohol or substance use in content or imagery. Support user control over when sensitive financial information is surfaced. Reference Intuit trauma-informed design principles throughout. Return: 1. Stress trigger and shame language risks 2. Calm communication patterns 3. Content sensitivity recommendations 4. Engineering controls for user-managed sensitive content",
+    "clinicalExamples": "Alcohol use disorder (in recovery), substance use disorder (in recovery)",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#sobriety"
+  },
+  {
+    "id": 15,
+    "title": "ADHD",
+    "name": "Julianna",
+    "backstory": "Julianna, 39, white, owns a small accessible farm with her partner. Manages a business with ADHD and relies on structured, low-distraction tools to stay on task.",
+    "category": "Neurodiversity",
+    "conditionDescription": "Sustaining attention through long, undifferentiated workflows is a genuine challenge, not a preference. Distracting animations, unclear progress, and interfaces that do not signal where to focus next create conditions where tasks are abandoned before completion, not from disinterest but from cognitive mismatch.",
+    "digitalChallenges": "Autoplay media, cluttered layouts, and workflows without clear progress indicators compete for attention and fragment focus. Meeting transcripts and video transcripts allow people with ADHD to scan and re-read at their own pace rather than tracking linear audio. People with ADHD are more likely to lose their place, make impulsive errors, or abandon tasks when interfaces do not actively support orientation and momentum.",
+    "assistiveTechnologies": [
+      "Text-to-speech",
+      "focus mode browser extensions",
+      "reminder apps"
+    ],
+    "designConsiderations": "Reduce visual noise by limiting animations and autoplay media. Use progress indicators and clear step headings to orient users throughout a task. Autosave all work and make transcripts available for all video and meeting content.",
+    "aiPrompt": "You are designing and building a digital product for people with ADHD. Review the interface and: Identify autoplay media and visual noise that compete for attention. Provide clear progress indicators showing current position and remaining steps. Ensure transcripts are available for all video and meeting content. Implement autosave so interrupted sessions can be resumed. Validate WCAG 2.2 AA compliance for 2.2.2, 2.4.6, and 3.3.1. Return: 1. Distraction and attention fragmentation risks 2. Focus and progress indicator patterns 3. Transcript and self-paced content recommendations 4. Engineering fixes for low-distraction, resumable workflows",
+    "clinicalExamples": "ADHD predominantly inattentive presentation, ADHD predominantly hyperactive-impulsive presentation, combined presentation",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#adhd"
+  },
+  {
+    "id": 20,
+    "title": "Autism Spectrum",
+    "name": "Maya",
+    "backstory": "Maya, 28, South Asian, rents an apartment and works as a software engineer. An Autistic professional who values predictable, literal interfaces and dislikes unexpected UI changes.",
+    "category": "Neurodiversity",
+    "conditionDescription": "Autistic users may experience sensory input, social communication, and predictability differently. Unexpected UI changes, ambiguous language, sensory-heavy animations, and interactions requiring implicit social inference create friction that consistent, literal, and calm design can reduce.",
+    "digitalChallenges": "Vague microcopy, sudden modal interruptions, autoplay animations, and interfaces that change layout without warning can cause significant distress. Autistic users often need to know exactly what will happen before taking an action, and design that withholds that clarity creates real barriers.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "reduced motion OS settings",
+      "keyboard navigation"
+    ],
+    "designConsiderations": "Use literal, unambiguous labels on all buttons and form fields. Avoid unexpected layout changes, modal interruptions, or autoplay. Provide clear advance notice before any action that changes the current screen or application state significantly.",
+    "aiPrompt": "You are designing and building a digital product for Autistic users. Review the interface and: Identify ambiguous labels, vague calls to action, and implied microcopy. Ensure every action clearly communicates what will happen before the user commits. Remove unexpected modal interruptions, layout shifts, and autoplay animations. Use literal, direct language and avoid idioms and metaphors. Validate WCAG 2.2 AA compliance for 2.2.2, 3.2.1, 3.2.2, and 3.3.2. Return: 1. Ambiguity, unpredictability, and sensory risks 2. Literal language and clear action patterns 3. Layout consistency and predictability improvements 4. Engineering fixes for warning-first, stable interfaces",
+    "clinicalExamples": "Autism spectrum disorder (ASD)",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#bipolar-disorder"
+  },
+  {
+    "id": 16,
+    "title": "Dyslexia",
+    "name": "Kwame",
+    "backstory": "Kwame, 17, Ghanaian British, lives with his family in social housing. Preparing to file his first tax return and struggles with dense text-heavy financial forms.",
+    "category": "Neurodiversity",
+    "conditionDescription": "Letter reversal, tracking difficulty, and slow decoding make dense text-heavy interfaces cognitively exhausting. Font choice, line spacing, plain language, and the ability to hear content read aloud reduce the effort required to extract meaning and complete tasks accurately.",
+    "digitalChallenges": "Justified text, small fonts, dense paragraphs, and interfaces with no text-to-speech support increase reading load significantly. People with dyslexia may misread labels, skip instructions, or avoid text-heavy tasks entirely when design does not account for how they process written language.",
+    "assistiveTechnologies": [
+      "Text-to-speech",
+      "screen readers",
+      "reading ruler browser extensions"
+    ],
+    "designConsiderations": "Use left-aligned text with generous line height and letter spacing. Avoid justified text blocks. Support text-to-speech for all content including error messages and form labels. Break instructions into short paragraphs with clear headings.",
+    "aiPrompt": "You are designing and building a digital product for people with dyslexia. Review the interface and: Identify justified text, small fonts, tight line spacing, and dense text blocks. Use left-aligned text, generous line height, and adequate letter spacing. Support text-to-speech for all content including labels and error messages. Break content into short paragraphs with clear headings. Validate WCAG 2.2 AA compliance for 1.4.4, 1.4.8, and 1.4.12. Return: 1. Typography and reading difficulty risks 2. Font, spacing, and layout improvements 3. Text-to-speech support patterns 4. Engineering fixes for dyslexia-friendly reading",
+    "clinicalExamples": "Specific learning disorder with impairment in reading",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#dyslexia"
+  },
+  {
+    "id": 7,
+    "title": "Acute Pain",
+    "name": "Kim",
+    "backstory": "Kim, 43, Egyptian, rents an apartment. Living with a chronic pain condition that flares unpredictably, making short, efficient digital tasks essential on difficult days.",
+    "category": "Physical",
+    "conditionDescription": "Active pain disrupts focus, reduces tolerance for friction, and shortens the time available for a task. Interactions that require extended screen time, complex navigation, or repeated fine motor input become disproportionately difficult when pain is present and unpredictable.",
+    "digitalChallenges": "Dense layouts, unclear navigation, and workflows requiring sustained fine motor control all increase difficulty when pain limits available attention and movement. People managing acute pain need to complete tasks quickly and accurately, with no tolerance for unnecessary steps or unclear instructions.",
+    "assistiveTechnologies": [
+      "Voice control",
+      "keyboard navigation",
+      "switch access"
+    ],
+    "designConsiderations": "Minimize the number of interactions required to complete each task. Use large, well-spaced touch targets and ensure full keyboard operability. Autosave all progress so sessions can be abandoned and resumed without any data loss.",
+    "aiPrompt": "You are designing and building a digital product for people managing acute pain. Review the interface and: Identify flows requiring sustained fine motor input or repeated actions. Minimize interactions required to complete each core task. Ensure all interactions are operable by keyboard or voice. Provide large, well-spaced touch targets. Validate WCAG 2.2 AA compliance for 2.1.1, 2.5.5, and 2.5.8. Return: 1. Fine motor and effort barriers 2. Task efficiency and input minimization patterns 3. Large target and keyboard navigation recommendations 4. Engineering fixes for low-effort interactions",
+    "clinicalExamples": "Chronic pain conditions including fibromyalgia, complex regional pain syndrome (CRPS), back pain, neuropathic pain",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#acute-pain"
+  },
+  {
+    "id": 6,
+    "title": "Chronic Fatigue",
+    "name": "Nandita",
+    "backstory": "Nandita, 46, South Asian, owns her home and works part-time. Managing ME/CFS alongside her career and needs financial tools that require minimal energy to complete.",
+    "category": "Physical",
+    "conditionDescription": "Energy is not unlimited. Conditions like ME/CFS, multiple sclerosis, or lupus mean that a task requiring many steps, repetitive inputs, or high concentration can exhaust the available capacity for the day. Efficiency, autosave, and minimal required effort are not conveniences, they are access requirements.",
+    "digitalChallenges": "Long multi-step workflows, the absence of autosave, and interfaces that require re-entering information after an error drain limited energy reserves quickly. For people with chronic fatigue, a session that ends unexpectedly often means the task does not get completed that day.",
+    "assistiveTechnologies": [
+      "Voice control",
+      "keyboard navigation",
+      "autofill and password managers"
+    ],
+    "designConsiderations": "Every workflow must be pausable and resumable across sessions. Use progress indicators to show remaining effort. Pre-fill known data, minimize required inputs, and never clear form data after a session timeout without prior warning.",
+    "aiPrompt": "You are designing and building a digital product for people with chronic fatigue conditions. Review the interface and: Identify workflows that cannot be paused, saved, and resumed across sessions. Implement autosave as a default throughout all multi-step tasks. Minimize required inputs by pre-filling known data. Avoid session timeouts that clear form data without warning. Validate WCAG 2.2 AA compliance for 2.2.1, 3.3.7, and 3.3.1. Return: 1. Energy and effort barrier risks 2. Autosave and session resumption patterns 3. Input minimization recommendations 4. Engineering fixes for energy-efficient, resumable workflows",
+    "clinicalExamples": "Myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS), multiple sclerosis, lupus, post-viral fatigue",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#chronic-fatigue"
+  },
+  {
+    "id": 3,
+    "title": "Limb Loss",
+    "name": "Victor",
+    "backstory": "Victor, 55, Ukranian, owns a home and runs a small landscaping business. Uses voice control and adaptive keyboards daily after losing his right hand in a combat injury.",
+    "category": "Physical",
+    "conditionDescription": "The absence of a limb reshapes every interaction with a keyboard, trackpad, or touchscreen. Workflows designed around two-handed input, standard mouse use, or precise pointer control may become unusable without voice input, switch access, or single-handed keyboard alternatives.",
+    "digitalChallenges": "Multi-key shortcuts, drag-and-drop interactions, and interfaces requiring simultaneous inputs create hard stops for people with limb loss. When voice and keyboard alternatives are missing or untested, entire workflows become inaccessible regardless of motivation or technical ability.",
+    "assistiveTechnologies": [
+      "Voice control",
+      "single-switch access",
+      "keyboard navigation"
+    ],
+    "designConsiderations": "Ensure every interaction is operable by keyboard or voice alone. Replace drag-and-drop with button alternatives. Test all critical flows using a single input device and confirm that focus order is logical and complete throughout.",
+    "aiPrompt": "You are designing and building a digital product for people with limb loss. Review the interface and: Identify multi-key shortcuts, two-handed gestures, and simultaneous input requirements. Ensure all tasks are fully operable by keyboard only or voice control alone. Replace drag-and-drop with keyboard-accessible alternatives. Test all critical flows using a single input device. Validate WCAG 2.2 AA compliance for 2.1.1, 2.1.2, 2.5.1, and 2.5.3. Return: 1. Multi-input and two-handed interaction risks 2. Single-input and voice navigation patterns 3. Switch access and keyboard-only flow recommendations 4. Engineering fixes for single-input operable interfaces",
+    "clinicalExamples": "Traumatic amputation, congenital limb difference, diabetes-related amputation",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#limb-loss"
+  },
+  {
+    "id": 4,
+    "title": "Limited Dexterity",
+    "name": "Hana",
+    "backstory": "Hana, 67, Japanese, lives in a retirement community. Managing rheumatoid arthritis that makes touchscreens and small targets difficult to use accurately.",
+    "category": "Physical",
+    "conditionDescription": "Tremors, reduced grip strength, or restricted hand movement make precise pointer control unreliable. Small click targets, drag-and-drop interactions, and time-limited actions create compounding barriers where a single missed input can force the entire task to restart.",
+    "digitalChallenges": "Small touch targets, hover-only menus, and interactions that require steady, precise movement all create failure points. For people with limited dexterity, accidental activations and missed targets are frequent, and interfaces that offer no forgiveness or undo capability make errors costly.",
+    "assistiveTechnologies": [
+      "Keyboard navigation",
+      "switch access",
+      "voice control"
+    ],
+    "designConsiderations": "Meet minimum 44x44px touch target sizes on all interactive components. Remove drag-and-drop as a sole interaction method and provide button-based alternatives. Provide undo for all actions and eliminate hover-only menus throughout.",
+    "aiPrompt": "You are designing and building a digital product for people with limited dexterity. Review the interface and: Identify touch targets smaller than 44x44px. Remove drag-and-drop as the only method for any interaction. Eliminate hover-only menus. Implement undo for all destructive actions. Validate WCAG 2.2 AA compliance for 2.5.5, 2.5.8, 2.2.1, and 2.5.2. Return: 1. Small target and precision interaction risks 2. Touch target sizing and spacing recommendations 3. Drag-and-drop alternative patterns 4. Engineering fixes for forgiving, error-tolerant input",
+    "clinicalExamples": "Rheumatoid arthritis, Parkinson's disease, essential tremor, cerebral palsy",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#limited-dexterity"
+  },
+  {
+    "id": 5,
+    "title": "Paralysis",
+    "name": "Isaiah",
+    "backstory": "Isaiah, 32, Black, lives in an accessible apartment with his partner. Uses switch access and eye tracking to manage his personal and small business finances independently.",
+    "category": "Physical",
+    "conditionDescription": "Full or partial paralysis requires complete reliance on alternative input methods such as eye tracking, switch access, voice control, or head pointer devices. Every interaction that assumes standard keyboard or pointer use becomes a hard barrier when those input paths are unavailable.",
+    "digitalChallenges": "Interfaces built exclusively for mouse or touch input lock out people with paralysis entirely. Without keyboard operability, switch access support, and well-structured focus order, tasks that take seconds for others can take minutes or become impossible to complete at all.",
+    "assistiveTechnologies": [
+      "Switch access",
+      "eye tracking",
+      "voice control"
+    ],
+    "designConsiderations": "Test every flow using switch access and keyboard-only navigation. Use visible focus indicators so current position is always clear. Minimize the number of Tab stops required to reach primary actions on every screen.",
+    "aiPrompt": "You are designing and building a digital product for people with paralysis who rely on eye tracking, switch access, or voice control. Review the interface and: Ensure every interaction is fully operable without a mouse or touchscreen. Verify logical, efficient focus order across all interactive elements. Test all flows using switch access simulation. Minimize the number of Tab stops required to reach critical actions. Validate WCAG 2.2 AA compliance for 2.1.1, 2.1.2, 2.4.3, 2.4.7, and 2.4.11. Return: 1. Mouse and touch dependency risks 2. Focus order and keyboard navigation patterns 3. Switch access and eye tracking recommendations 4. Engineering fixes for alternative-input operable interfaces",
+    "clinicalExamples": "Spinal cord injury, ALS (amyotrophic lateral sclerosis), stroke-related hemiplegia, Guillain-Barré syndrome",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#paralysis"
+  },
+  {
+    "id": 14,
+    "title": "Aphasia",
+    "name": "Gloria",
+    "backstory": "Gloria, 64, Black, lives with her son after a stroke. Regaining independence in managing her finances and needs simplified language and icon-supported interfaces to navigate confidently.",
+    "category": "Speech",
+    "conditionDescription": "Aphasia affects the ability to produce, find, or organize language, often following stroke or brain injury. Reading dense instructions, composing text, or navigating language-heavy interfaces requires significantly more effort. Simplified language, icon reinforcement, and reduced text input demands directly support access.",
+    "digitalChallenges": "Long error messages, complex form labels, and interfaces requiring typed free-text responses create significant friction. People with aphasia may understand what they want to do but struggle to find or produce the words required to do it within a standard interface.",
+    "assistiveTechnologies": [
+      "AAC devices",
+      "symbol-based communication tools",
+      "text-to-speech"
+    ],
+    "designConsiderations": "Supplement free-text inputs with structured dropdown or selection options where possible. Use short field labels with icon reinforcement. Never use open-ended text entry as the only way to complete a core task in the flow.",
+    "aiPrompt": "You are designing and building a digital product for people with aphasia. Review the interface and: Identify free-text input fields and supplement with structured options where possible. Use short, simple sentences for all labels, instructions, and errors. Reinforce all text labels with icons. Support AAC device compatibility. Validate WCAG 2.2 AA compliance for 2.2.1, 3.1.3, 3.1.5, and 3.3.2. Return: 1. Language production and input barriers 2. Structured input alternative patterns 3. Icon reinforcement and plain language recommendations 4. Engineering fixes for low-text, AAC-compatible interactions",
+    "clinicalExamples": "Broca's aphasia, global aphasia, stroke, or traumatic brain injury.",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#aphasia"
+  },
+  {
+    "id": 13,
+    "title": "Speech Disability",
+    "name": "Meena",
+    "backstory": "Meena, 24, Syrian, lives with their parents. Managing a stutter that affects voice recognition tools, requiring reliable text-based alternatives for all interactions.",
+    "category": "Speech",
+    "conditionDescription": "Stuttering, dysarthria, selective mutism, or other speech differences affect how reliably voice input is recognized. Interfaces that require spoken commands or voice verification as the only input path exclude anyone whose speech pattern falls outside the model's training data.",
+    "digitalChallenges": "Voice authentication, speech-only input fields, and AI assistants that fail on non-standard speech patterns all create barriers. People with speech disabilities need text-based and keyboard alternatives for every voice-dependent interaction, without those alternatives being buried or harder to find.",
+    "assistiveTechnologies": [
+      "AAC devices",
+      "keyboard navigation",
+      "text-based input alternatives"
+    ],
+    "designConsiderations": "Provide a text or keyboard alternative for every voice-triggered interaction at equal visual prominence. Never use voice recognition as the sole authentication method. Ensure all voice features fail gracefully with an immediate non-voice fallback.",
+    "aiPrompt": "You are designing and building a digital product for people with speech disabilities. Review the interface and: Identify every voice-dependent interaction including authentication and commands. Provide a text or keyboard alternative for every voice interaction at equal prominence. Do not use voice recognition as the sole authentication method. Ensure AI assistants fail gracefully with a clear non-voice fallback. Validate WCAG 2.2 AA compliance for 2.1.1 and 3.3.2. Return: 1. Voice-only dependency risks 2. Text and keyboard alternative patterns 3. Authentication fallback recommendations 4. Engineering fixes for speech-independent task completion",
+    "clinicalExamples": "Stuttering, dysarthria, apraxia of speech, selective mutism, spasmodic dysphonia",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#speech-disability"
+  },
+  {
+    "id": 1,
+    "title": "Blind",
+    "name": "Lucy",
+    "backstory": "Lucy, 60, white, owns her home and runs her own consulting business. A Blind professional who navigates financial platforms daily using JAWS and a refreshable Braille display.",
+    "category": "Visual",
+    "conditionDescription": "Blind users navigate digital interfaces without any visual reference, requiring a completely non-visual mental model. Screen readers, keyboard navigation, and Braille displays translate structure into meaning but only when that structure is correctly coded and consistently maintained.",
+    "digitalChallenges": "Unlabeled buttons, missing alt text, and illogical reading order make it impossible to understand or navigate a page. Many Blind users also prefer reviewing a transcript over listening to a video, as it allows faster navigation and skimming with a screen reader. When structure is visual-only, screen readers announce nothing useful, leaving Blind users unable to complete tasks independently or with confidence.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "Braille displays",
+      "keyboard navigation"
+    ],
+    "designConsiderations": "Use semantic HTML to expose correct roles and structure. Provide descriptive alt text for all images and icons. Ensure reading and focus order reflects visual layout intent and all functionality is fully keyboard operable.",
+    "aiPrompt": "You are designing and building a digital product for Blind users who navigate entirely without visual reference. Review the interface and: Ensure every interactive element has a descriptive, meaningful accessible name. Provide alt text for all images, icons, and non-text content. Verify logical reading and focus order. Use semantic HTML so screen readers communicate structure correctly. Provide transcripts for all video and audio content. Validate WCAG 2.2 AA compliance for 1.1.1, 1.3.1, 2.1.1, 2.4.3, and 4.1.2. Return: 1. Screen reader and keyboard navigation barriers 2. Semantic structure and alt text recommendations 3. Focus order and ARIA implementation patterns 4. Engineering fixes for fully non-visual task completion",
+    "clinicalExamples": "Retinitis pigmentosa, optic nerve damage, optic neuritis, Leber's hereditary optic neuropathy",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#blind"
+  },
+  {
+    "id": 10,
+    "title": "Cataracts",
+    "name": "Harold",
+    "backstory": "Harold, 78, Black, lives in subsidized senior housing. Post-cataract surgery recovery has made screen glare and low contrast text temporarily painful and difficult to read.",
+    "category": "Visual",
+    "conditionDescription": "Clouded lenses scatter light and reduce contrast, making sharp, high-contrast content essential for legibility. Bright glare from white backgrounds can worsen visibility. Clear typography, adjustable display settings, and high-contrast modes directly reduce the daily friction of using digital products.",
+    "digitalChallenges": "Low contrast text, thin fonts, and bright white backgrounds become painful or unreadable. People with cataracts often struggle to distinguish interface elements that appear clear to others, making reading, form completion, and navigation slower and more effortful than necessary.",
+    "assistiveTechnologies": [
+      "High contrast mode",
+      "screen magnifiers",
+      "dark mode"
+    ],
+    "designConsiderations": "Avoid pure white backgrounds and thin font weights. Support dark mode and high contrast modes. Ensure all text meets WCAG AA contrast ratios and provide a user-accessible high-contrast display option within the interface itself.",
+    "aiPrompt": "You are designing and building a digital product for people with cataracts. Review the interface and: Identify text and UI elements below WCAG AA contrast thresholds. Avoid pure white backgrounds to reduce glare. Use bold, legible fonts at sufficient size with adequate line spacing. Provide a high-contrast mode and support dark mode. Validate WCAG 2.2 AA compliance for 1.4.3, 1.4.6, and 1.4.11. Return: 1. Contrast and glare risks 2. Typography and contrast improvement recommendations 3. High contrast and dark mode patterns 4. Engineering fixes for glare-reduced, high-legibility interfaces",
+    "clinicalExamples": "Age-related cataracts, congenital cataracts, post-surgical recovery",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#glaucoma"
+  },
+  {
+    "id": 8,
+    "title": "Color Blindness",
+    "name": "Brendan",
+    "backstory": "Brendan, 23, Irish American, rents a shared house with college roommates. Has red-green color blindness and frequently misreads financial status indicators that rely on color alone.",
+    "category": "Visual",
+    "conditionDescription": "When color is the only signal distinguishing success from error, or active from inactive, critical information disappears. Red-green confusion is most common, but all types of color vision deficiency require interfaces that use shape, label, and pattern alongside color.",
+    "digitalChallenges": "Error states shown only in red, status indicators using color alone, and charts without patterns or labels all become meaningless. People with color blindness must guess at meaning that sighted users read instantly, increasing errors and task abandonment.",
+    "assistiveTechnologies": [
+      "Color blindness simulator tools",
+      "high contrast mode",
+      "screen readers"
+    ],
+    "designConsiderations": "Never use color as the only signal for status, error, or meaning. Add icons, text labels, or pattern fills alongside all color-coded indicators. Test all data visualizations using a color blindness simulation tool before release.",
+    "aiPrompt": "You are designing and building a digital product for people with color blindness. Review the interface and: Identify every instance where color is the sole means of conveying information. Add text labels, icons, or patterns alongside all color-coded status indicators. Test all data visualizations using a color blindness simulator. Check that links are distinguishable from body text by more than color alone. Validate WCAG 2.2 AA compliance for 1.4.1 and 1.4.3. Return: 1. Color-only information risks 2. Pattern, label, and icon alternative recommendations 3. Data visualization accessible color patterns 4. Engineering fixes for color-independent status communication",
+    "clinicalExamples": "Deuteranopia (red-green), protanopia (red-green), tritanopia (blue-yellow), achromatopsia",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#color-blindness"
+  },
+  {
+    "id": 9,
+    "title": "Glaucoma",
+    "name": "Adaeze",
+    "backstory": "Adaeze, 61, Nigerian, owns their home and runs a catering business. Managing progressive peripheral vision loss and relies on centrally placed content to navigate financial tools.",
+    "category": "Visual",
+    "conditionDescription": "Peripheral vision loss narrows the usable field of view over time, often without early warning. Interfaces that place critical actions, labels, or alerts at the edges of the screen may be completely invisible, even when central vision remains functional.",
+    "digitalChallenges": "Navigation menus, notifications, and action buttons positioned at screen edges fall outside the usable visual field. People with glaucoma may miss critical prompts entirely, leading to incomplete tasks, missed errors, and growing frustration with interfaces that assume full peripheral vision.",
+    "assistiveTechnologies": [
+      "Screen magnifiers",
+      "screen readers",
+      "keyboard navigation"
+    ],
+    "designConsiderations": "Place all critical alerts, errors, and calls to action in the central visual zone. Avoid edge-only notifications. Use inline alerts adjacent to triggering elements and ensure screen reader announcements duplicate all visual feedback.",
+    "aiPrompt": "You are designing and building a digital product for people with glaucoma who have reduced peripheral vision. Review the interface and: Identify critical actions and alerts positioned at screen edges. Move primary navigation and error indicators to the central visual zone. Ensure screen reader announcements provide access to peripherally placed content. Test critical flows by masking peripheral screen areas. Validate WCAG 2.2 AA compliance for 1.3.1, 1.4.3, and 4.1.3. Return: 1. Peripheral placement risks for critical content 2. Central zone layout and alert positioning recommendations 3. Screen reader announcement patterns 4. Engineering fixes for central-vision-friendly layout",
+    "clinicalExamples": "Open-angle glaucoma, angle-closure glaucoma, normal-tension glaucoma",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#low-vision"
+  },
+  {
+    "id": 2,
+    "title": "Low Vision",
+    "name": "Mei",
+    "backstory": "Mei, 72, Chinese American, lives in a senior apartment community. Uses screen magnification and high contrast settings to manage her own finances with minimal assistance.",
+    "category": "Visual",
+    "conditionDescription": "For low vision users, text that is too small, too low in contrast, or that breaks apart when zoomed creates an immediate barrier. Magnification tools and display adjustments help, but only when layouts are designed to scale without losing content or alignment.",
+    "digitalChallenges": "Layouts that reflow incorrectly at high zoom levels force horizontal scrolling and hide content. Fixed font sizes, low contrast text, and icons without labels make it difficult to read, orient, and interact without switching between tools constantly.",
+    "assistiveTechnologies": [
+      "Screen magnifiers",
+      "high contrast mode",
+      "screen readers"
+    ],
+    "designConsiderations": "Use relative font size units so typography scales with browser settings. Ensure all layouts reflow at 400% zoom without horizontal scrolling. Label all icons with visible text and support high contrast mode without content loss.",
+    "aiPrompt": "You are designing and building a digital product for low vision users who rely on magnification, high contrast, and scalable text. Review the interface and: Ensure all layouts reflow correctly at 400% zoom without horizontal scrolling. Use relative units for font sizes so text scales with browser settings. Verify all text meets WCAG AA contrast ratios. Ensure all icons have visible text labels. Validate WCAG 2.2 AA compliance for 1.4.3, 1.4.4, 1.4.10, and 1.4.11. Return: 1. Zoom, reflow, and contrast risks 2. Scalable layout and text resizing patterns 3. Icon labeling and high contrast recommendations 4. Engineering fixes for magnification-compatible interfaces",
+    "clinicalExamples": "Macular degeneration, diabetic retinopathy, albinism, optic atrophy",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#temporary-blindness"
+  },
+  {
+    "id": 35,
+    "title": "Temporary Blindness",
+    "name": "Amara",
+    "backstory": "Amara, 37, West African, owns her home with her husband. Recovering from laser eye surgery and using a screen reader independently for the first time to manage household finances.",
+    "category": "Visual",
+    "conditionDescription": "Post-surgery recovery, acute injury, or medical treatment can remove usable vision for days or weeks. This is often the first moment someone encounters a screen reader or keyboard-only navigation, making first-use clarity and learnability critical design requirements.",
+    "digitalChallenges": "Encountering a screen reader for the first time while recovering from surgery is disorienting. Interfaces with poor semantic structure, inconsistent focus behavior, or no keyboard support create an immediate wall for people whose vision loss is new, urgent, and unplanned.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "keyboard navigation",
+      "text-to-speech"
+    ],
+    "designConsiderations": "Build correct heading hierarchy and landmark structure so screen reader navigation works from the first visit. Use standard, predictable interaction patterns so first-time screen reader users encounter learnable, consistent behavior throughout.",
+    "aiPrompt": "You are designing and building a digital product for people experiencing temporary blindness, many using a screen reader for the first time. Review the interface and: Ensure all tasks are completable by keyboard and screen reader without prior experience. Provide clear, consistent heading structure for screen reader navigation. Avoid custom interaction patterns that deviate from expected screen reader behavior. Test all critical flows using a screen reader in browse mode and forms mode. Validate WCAG 2.2 AA compliance for 1.3.1, 2.1.1, 2.4.3, 2.4.6, and 4.1.2. Return: 1. First-time screen reader experience barriers 2. Heading structure and keyboard navigation patterns 3. Onboarding recommendations for assistive technology 4. Engineering fixes for standard, predictable screen reader behavior",
+    "clinicalExamples": "Post-surgical recovery (e.g. LASIK, cataract surgery), corneal abrasion, acute optic neuritis",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#cataracts"
+  },
+  {
+    "id": 34,
+    "title": "Visual Field Loss",
+    "name": "Soren",
+    "backstory": "Soren, 49, Danish American, rents an apartment and works as a freelance editor. Managing central vision loss that makes peripherally placed alerts and error messages easy to miss.",
+    "category": "Visual",
+    "conditionDescription": "Damage to the visual field, whether central, peripheral, or patchy, means content positioned outside the functional zone is missed entirely. Navigation, alerts, and form errors placed outside the central viewing area may never be seen, regardless of visual acuity.",
+    "digitalChallenges": "Inline error messages, tooltips, and status updates that appear outside the functional visual zone go unnoticed. People with visual field loss may submit incorrect forms or miss critical feedback because the interface places information where they cannot reliably see it.",
+    "assistiveTechnologies": [
+      "Screen readers",
+      "screen magnifiers",
+      "keyboard navigation"
+    ],
+    "designConsiderations": "Place all error messages, form validation, and status feedback adjacent to the triggering element, never at screen edges. Use inline alerts and ensure screen reader announcements duplicate all visual feedback as a redundant access channel.",
+    "aiPrompt": "You are designing and building a digital product for people with visual field loss. Review the interface and: Identify error messages and status updates placed outside the central content area. Ensure all critical feedback is adjacent to the triggering element and announced by screen reader. Test all form validation to confirm errors appear in the user's likely focus zone. Avoid requiring users to scan the full screen to confirm a successful action. Validate WCAG 2.2 AA compliance for 1.3.1, 3.3.1, 3.3.3, and 4.1.3. Return: 1. Out-of-field content placement risks 2. Inline error and feedback positioning patterns 3. Screen reader announcement recommendations 4. Engineering fixes for field-loss-tolerant content placement",
+    "clinicalExamples": "Hemianopia, quadrantanopia, scotoma, optic neuritis",
+    "aiPromptUrl": "https://fyvr.net/prompts.html#visual-field-loss"
+  }
+]

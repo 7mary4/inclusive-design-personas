@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Prompts for Inclusive Design</title>
+	<link href="https://fonts.googleapis.com" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #ffffff;
+    --color-surface: #f9fafb;
+    --color-border: #e5e7eb;
+    --color-text: #111827;
+    --color-muted: #6b7280;
+    --color-link: #1d4ed8;
+    --color-link-hover: #1e3a8a;
+    --color-code-bg: #1e293b;
+    --color-code-text: #e2e8f0;
+    --color-target-outline: #2563eb;
+    --color-target-bg: #eff6ff;
+    --font-sans: 'Atkinson Hyperlegible', sans-serif;
+    --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+    --radius: 6px;
+    --max-width: 860px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    background: var(--color-bg);
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .site-header {
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .last-updated {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+    color: #374151;
+    max-width: 70ch;
+  }
+
+  /* Table of contents */
+  .toc {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .toc h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+
+  .toc-group {
+    margin-bottom: 1rem;
+  }
+
+  .toc-group-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+    margin-bottom: 0.35rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    padding-left: 0.5rem;
+  }
+
+  .toc-list li { font-size: 0.9rem; }
+
+  .toc-list a {
+    color: var(--color-link);
+    text-decoration: underliine;
+  }
+
+  .toc-list a:hover,
+  .toc-list a:focus,
+  .toc-list a:focus-visible {
+    color: var(--color-link-hover);
+    text-decoration: none;
+	outline: 2px solid var(--color-target-outline);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+
+
+  /* Category sections */
+  .category {
+    margin-bottom: 3rem;
+  }
+
+  .category-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Condition blocks */
+  .condition {
+    margin-bottom: 2.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .condition:target {
+    background: var(--color-target-bg);
+    border-color: var(--color-target-outline);
+    outline: 2px solid var(--color-target-outline);
+    outline-offset: 2px;
+  }
+
+  .condition h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .condition p {
+    font-size: 0.95rem;
+    color: #374151;
+    margin-bottom: 1rem;
+    max-width: 72ch;
+  }
+
+  /* Code block */
+  .code-wrapper {
+    position: relative;
+  }
+
+  pre {
+    background: var(--color-code-bg);
+    color: var(--color-code-text);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.65;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    tab-size: 2;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    background: #334155;
+    color: #cbd5e1;
+    border: 1px solid #475569;
+    border-radius: 4px;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .copy-btn:hover { background: #475569; color: #f1f5f9; }
+
+  .copy-btn:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 2px;
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--color-text);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    text-decoration: none;
+    z-index: 100;
+  }
+
+  .skip-link:focus { top: 1rem; }
+
+  /* Back to top */
+  .back-top {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--color-link);
+    text-decoration: none;
+  }
+
+  .back-top:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    .toc { padding: 1rem 1.25rem; }
+    pre { font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div class="page">
+
+  <header class="site-header">
+    <h1>AI Prompts for Inclusive Design</h1>
+    <p class="last-updated">Last updated: March 2026</p>
+    <p class="intro">
+      These prompts are designed to help designers, engineers, and product teams build accessible, inclusive digital experiences. Copy any prompt directly into AI-powered tools including Claude, Cursor, GitHub Copilot, Builder.io, Figma AI, or any chat-based assistant. Paste the prompt along with a description of your interface, a code snippet, or a design screenshot to receive targeted accessibility guidance specific to each condition. Use these prompts during design reviews, code generation, component audits, or when building new features from scratch.
+    </p>
+  </header>
+
+  <nav aria-label="Table of contents">
+    <div class="toc">
+      <h2 id="contents">Contents</h2>
+
+      <div class="toc-group">
+        <h3 class="toc-group-label">Auditory</h3>
+        <ul class="toc-list">
+          <li><a href="#deaf">Deaf</a></li>
+          <li><a href="#hard-of-hearing">Hard of Hearing</a></li>
+          <li><a href="#noisy-environment">Noisy Environment</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-group">
+        <h3 class="toc-group-label">Cognitive</h3>
+        <ul class="toc-list">
+          <li><a href="#brain-fog">Brain Fog</a></li>
+          <li><a href="#cognitive-overload">Cognitive Overload</a></li>
+          <li><a href="#learning-disability">Learning Disability</a></li>
+          <li><a href="#memory-loss">Memory Loss</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-group">
+        <h3 class="toc-group-label">Intersectional</h3>
+        <ul class="toc-list">
+          <li><a href="#bright-light">Bright Light Usage</a></li>
+          <li><a href="#device-constraints">Device Constraints</a></li>
+          <li><a href="#epilepsy">Epilepsy</a></li>
+          <li><a href="#fatigue-situational">Fatigue (Situational)</a></li>
+          <li><a href="#low-bandwidth">Low Bandwidth</a></li>
+          <li><a href="#low-literacy">Low Literacy</a></li>
+          <li><a href="#migraine-sensitivity">Migraine Sensitivity</a></li>
+          <li><a href="#motion-sensitivity">Motion Sensitivity</a></li>
+          <li><a href="#non-native-speaker">Non-Native Speaker</a></li>
+          <li><a href="#one-handed-use">One-Handed Use</a></li>
+          <li><a href="#temporary-injury">Temporary Injury</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-group">
+        <h3 class="toc-group-label">Mental Health</h3>
+        <ul class="toc-list">
+          <li><a href="#anxiety">Anxiety</a></li>
+          <li><a href="#bipolar-disorder">Bipolar Disorder</a></li>
+          <li><a href="#depression">Depression</a></li>
+          <li><a href="#panic-disorder">Panic Disorder</a></li>
+          <li><a href="#sobriety">Sobriety</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-group">
+        <h3 class="toc-group-label">Neurodiversity</h3>
+        <ul class="toc-list">
+          <li><a href="#adhd">ADHD</a></li>
+          <li><a href="#autism-spectrum">Autism Spectrum</a></li>
+          <li><a href="#dyslexia">Dyslexia</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-group">
+        <h3 class="toc-group-label">Physical</h3>
+        <ul class="toc-list">
+          <li><a href="#acute-pain">Acute Pain</a></li>
+          <li><a href="#chronic-fatigue">Chronic Fatigue</a></li>
+          <li><a href="#limited-dexterity">Limited Dexterity</a></li>
+          <li><a href="#limb-loss">Limb Loss</a></li>
+          <li><a href="#paralysis">Paralysis</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-group">
+        <h3 class="toc-group-label">Speech</h3>
+        <ul class="toc-list">
+          <li><a href="#aphasia">Aphasia</a></li>
+          <li><a href="#speech-disability">Speech Disability</a></li>
+        </ul>
+      </div>
+
+      <div class="toc-group">
+        <h3 class="toc-group-label">Visual</h3>
+        <ul class="toc-list">
+          <li><a href="#blind">Blind</a></li>
+          <li><a href="#cataracts">Cataracts</a></li>
+          <li><a href="#color-blindness">Color Blindness</a></li>
+          <li><a href="#glaucoma">Glaucoma</a></li>
+          <li><a href="#low-vision">Low Vision</a></li>
+          <li><a href="#temporary-blindness">Temporary Blindness</a></li>
+          <li><a href="#visual-field-loss">Visual Field Loss</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- AUDITORY -->
+    <section class="category" aria-labelledby="cat-auditory">
+      <h2 class="category-heading" id="cat-auditory">Auditory</h2>
+
+      <div class="condition" id="deaf">
+        <h3>Deaf</h3>
+        <p>Deaf users rely on sign-language interpreters, captions, transcripts, and visual alerts to access information that hearing users receive passively and automatically. Audio content without a visual equivalent is simply inaccessible, including for those who identify as part of the Deaf community.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Deaf">Copy</button>
+          <pre>You are designing and building a digital product for Deaf users, including those who identify as part of the Deaf community.
+
+Review the interface and:
+- Identify every instance where audio is the sole means of conveying information
+- Ensure captions are available, accurate, and synchronized for all video and audio content
+- Replace audio-only alerts with persistent visual equivalents
+- Eliminate voice-only verification or authentication steps
+- Ensure meeting and video transcripts are available, not just captions
+- Validate WCAG 2.2 AA compliance for 1.2.1, 1.2.2, 1.2.4, and 1.4.2
+
+Return:
+1. Audio-only barriers and their visual alternatives
+2. Caption and transcript implementation recommendations
+3. Visual alert and notification patterns
+4. Engineering fixes for audio-dependent interactions</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="hard-of-hearing">
+        <h3>Hard of Hearing</h3>
+        <p>Partial hearing loss does not make audio content reliably accessible. Background noise, compression artifacts, or fast speech can make audio unintelligible even with hearing aids. Captions, adjustable audio controls, and visual reinforcement for alerts ensure content remains accessible across all hearing levels.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Hard of Hearing">Copy</button>
+          <pre>You are designing and building a digital product for hard of hearing users.
+
+Review the interface and:
+- Identify audio content that lacks accurate captions or transcripts
+- Ensure volume controls are keyboard accessible and clearly labeled
+- Replace sound-only notifications with visible, persistent visual alerts
+- Provide transcripts for all meeting and collaborative audio content
+- Avoid auto-playing audio without user control
+- Validate WCAG 2.2 AA compliance for 1.2.1, 1.2.2, and 1.4.2
+
+Return:
+1. Audio accessibility gaps and visual equivalents
+2. Caption quality and transcript availability improvements
+3. Notification and alert design recommendations
+4. Engineering patterns for audio-independent interactions</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="noisy-environment">
+        <h3>Noisy Environment</h3>
+        <p>A loud café, an open-plan office, or a crowded transit system makes audio-dependent interfaces unusable regardless of hearing ability. Alerts, confirmations, and instructional audio become inaccessible the moment the environment competes with the device speaker.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Noisy Environment">Copy</button>
+          <pre>You are designing and building a digital product for users in environments where audio cannot be relied upon.
+
+Review the interface and:
+- Identify every interaction that depends on audio feedback or sound alerts
+- Ensure all confirmations, errors, and status updates are conveyed visually
+- Provide captions and transcripts for all audio and video content
+- Ensure critical actions do not require the user to hear a prompt or response
+- Support silent or vibration notification modes
+- Validate WCAG 2.2 AA compliance for 1.2.1, 1.2.2, and 1.4.2
+
+Return:
+1. Audio-dependent interaction risks
+2. Visual feedback and alert patterns
+3. Caption and transcript recommendations
+4. Engineering fixes for sound-reliant flows</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+    </section>
+
+    <!-- COGNITIVE -->
+    <section class="category" aria-labelledby="cat-cognitive">
+      <h2 class="category-heading" id="cat-cognitive">Cognitive</h2>
+
+      <div class="condition" id="brain-fog">
+        <h3>Brain Fog</h3>
+        <p>Brain fog is a symptom, not a diagnosis, commonly associated with Long COVID, fibromyalgia, autoimmune conditions, and chronic fatigue. It affects processing speed, word retrieval, and the ability to hold a sequence of steps in mind. Clarity, brevity, and forgiveness in design are essential.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Brain Fog">Copy</button>
+          <pre>You are designing and building a digital product for people experiencing brain fog, a symptom associated with conditions including Long COVID, fibromyalgia, and chronic fatigue.
+
+Review the interface and:
+- Identify flows that require sustained concentration or multi-step memory
+- Simplify navigation to reduce the number of decisions required per screen
+- Use plain, direct language with no jargon or implied knowledge
+- Provide clear visual markers for current position within a workflow
+- Support autosave and allow users to resume incomplete tasks easily
+- Avoid timed sessions or interactions that punish slow response
+- Validate WCAG 2.2 AA compliance for 2.2.1, 3.1.5, and 3.3.1
+
+Return:
+1. Cognitive load and complexity risks
+2. Navigation simplification recommendations
+3. Autosave and task resumption patterns
+4. Engineering fixes for time-sensitive or memory-dependent interactions</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="cognitive-overload">
+        <h3>Cognitive Overload</h3>
+        <p>When information density exceeds processing capacity due to stress, complexity, or accumulated mental effort, decision-making degrades and errors increase. This is an experience that intersects with many disabilities and life contexts, and it signals where interface simplification creates the widest possible benefit.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Cognitive Overload">Copy</button>
+          <pre>You are designing and building a digital product to reduce cognitive overload across all users, particularly in high-stakes financial contexts.
+
+Review the interface and:
+- Identify screens with excessive information density or too many simultaneous choices
+- Apply progressive disclosure to surface only what is needed at each step
+- Use clear visual hierarchy with headings, spacing, and grouping to guide attention
+- Reduce the number of decisions required per screen to the minimum necessary
+- Provide clear confirmation before irreversible actions
+- Ensure error recovery is straightforward and does not require restarting
+- Validate WCAG 2.2 AA compliance for 1.3.1, 2.4.6, and 3.3.1
+
+Return:
+1. Information density and decision complexity risks
+2. Progressive disclosure and hierarchy improvements
+3. Error prevention and recovery patterns
+4. Engineering recommendations for simplified, focused layouts</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="learning-disability">
+        <h3>Learning Disability</h3>
+        <p>Learning disabilities span a wide range of conditions affecting reading, numeracy, sequencing, or processing speed. Interfaces that assume a standard pace, use jargon without explanation, or require multi-step reasoning without visual support can make routine financial tasks feel insurmountable.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Learning Disability">Copy</button>
+          <pre>You are designing and building a digital product for people with learning disabilities.
+
+Review the interface and:
+- Identify financial or technical terminology that lacks plain language explanation
+- Break multi-step processes into single, clearly sequenced tasks
+- Provide visual cues and icons that reinforce written instructions
+- Avoid multi-column layouts that disrupt linear reading order
+- Support adjustable reading pace with no timed interactions
+- Ensure error messages explain what went wrong and how to fix it in plain terms
+- Validate WCAG 2.2 AA compliance for 3.1.3, 3.1.5, 3.3.1, and 3.3.2
+
+Return:
+1. Language and complexity barriers
+2. Step sequencing and layout improvements
+3. Plain language and visual support recommendations
+4. Engineering patterns for paced, linear task flows</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="memory-loss">
+        <h3>Memory Loss</h3>
+        <p>Forgetting where a task was left, what information was already entered, or how a previous step was completed is a daily reality. Autosave, progress indicators, session history, and confirmation summaries remove the need to hold process state in working memory.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Memory Loss">Copy</button>
+          <pre>You are designing and building a digital product for people with memory loss.
+
+Review the interface and:
+- Identify steps that require users to recall information from earlier in the flow
+- Ensure autosave is present throughout all multi-step workflows
+- Provide visible progress indicators showing where the user is and what remains
+- Display previously entered information as confirmation before submission
+- Avoid session timeouts that clear form data without warning
+- Support re-entry minimization by pre-filling known information
+- Validate WCAG 2.2 AA compliance for 3.3.1, 3.3.4, and 3.3.7
+
+Return:
+1. Memory-dependent interaction risks
+2. Autosave and progress indicator patterns
+3. Session and data persistence recommendations
+4. Engineering implementation for re-entry minimization</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+    </section>
+
+    <!-- INTERSECTIONAL -->
+    <section class="category" aria-labelledby="cat-intersectional">
+      <h2 class="category-heading" id="cat-intersectional">Intersectional</h2>
+
+      <div class="condition" id="bright-light">
+        <h3>Bright Light Usage</h3>
+        <p>Reading a screen in direct sunlight, a bright office, or a high-glare environment reduces visibility for everyone. People who primarily use devices outdoors or in high-ambient-light settings depend on strong contrast, legible typography, and glare-resilient design.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Bright Light Usage">Copy</button>
+          <pre>You are designing and building a digital product for users in bright light or high-glare environments.
+
+Review the interface and:
+- Identify text and UI elements that rely on low contrast or subtle color differences
+- Ensure all text meets WCAG AA contrast ratios and ideally targets AAA for body text
+- Support high contrast mode and dark mode as first-class display options
+- Avoid light gray on white and other low-contrast combinations throughout the UI
+- Use bold, legible typography at sufficient size for outdoor readability
+- Ensure interactive elements are distinguishable without relying on subtle visual cues
+- Validate WCAG 2.2 AA compliance for 1.4.3, 1.4.6, and 1.4.11
+
+Return:
+1. Contrast and visibility risks in bright conditions
+2. High contrast and dark mode implementation patterns
+3. Typography and color recommendations
+4. Engineering fixes for glare-resilient UI</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="device-constraints">
+        <h3>Device Constraints</h3>
+        <p>Older phones, low-memory devices, and small screens are common in lower-income and global markets. People using constrained devices need lightweight, responsive experiences that do not require the latest hardware to access essential features.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Device Constraints">Copy</button>
+          <pre>You are designing and building a digital product for users on constrained devices including older phones, low-memory hardware, and small screens.
+
+Review the interface and:
+- Identify JavaScript-heavy interactions that fail or degrade on low-memory devices
+- Optimize image and asset loading for slow processors and limited storage
+- Ensure all core tasks are completable on small screens without horizontal scrolling
+- Avoid animations and visual effects that consume CPU or GPU resources unnecessarily
+- Test responsive layouts at 320px minimum viewport width
+- Provide a functional baseline experience that works without the latest browser features
+- Validate WCAG 2.2 AA compliance for 1.4.4, 1.4.10, and 2.5.5
+
+Return:
+1. Performance and rendering risks on constrained devices
+2. Asset optimization and loading strategies
+3. Responsive layout recommendations
+4. Engineering fixes for lightweight, progressive experiences</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="epilepsy">
+        <h3>Epilepsy</h3>
+        <p>Flashing content and rapid visual transitions can trigger seizures in people with photosensitive epilepsy. Safe digital experiences require predictable, stable visuals with no strobing or high-frequency animation, even in subtle UI elements.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Epilepsy">Copy</button>
+          <pre>You are designing and building a digital product that must be safe for people with photosensitive epilepsy.
+
+Review the interface and:
+- Identify any content that flashes more than 3 times per second
+- Remove or replace all strobing, flickering, or rapidly cycling visual elements
+- Ensure animated content defaults to off or reduced and can be fully disabled
+- Apply the prefers-reduced-motion media query as a default safe state, not an opt-in
+- Avoid large areas of high-contrast flashing, particularly red
+- Test all animated components against WCAG photosensitivity thresholds
+- Validate WCAG 2.2 AA compliance for 2.3.1 and AAA compliance for 2.3.2
+
+Return:
+1. Seizure risk elements and their frequency
+2. Safe animation defaults and removal patterns
+3. Testing methodology for photosensitive content
+4. Engineering implementation for flash-safe UI</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="fatigue-situational">
+        <h3>Fatigue (Situational)</h3>
+        <p>End-of-day exhaustion, caregiving demands, illness recovery, or burnout reduce a person's capacity to process complex tasks. Fatigued users make more errors, abandon sessions sooner, and need low-effort, forgiving interfaces that do not punish mistakes.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Fatigue Situational">Copy</button>
+          <pre>You are designing and building a digital product for users experiencing situational fatigue due to exhaustion, illness, caregiving, or burnout.
+
+Review the interface and:
+- Identify workflows that require sustained effort or cannot be paused and resumed
+- Implement autosave throughout all multi-step tasks
+- Break long forms into shorter, clearly labeled sections
+- Minimize required inputs by pre-filling or inferring known information
+- Provide forgiving error recovery that does not clear previously entered data
+- Reduce the number of steps needed to complete high-frequency tasks
+- Validate WCAG 2.2 AA compliance for 2.2.1, 3.3.1, and 3.3.7
+
+Return:
+1. Effort and complexity barriers
+2. Autosave and task resumption patterns
+3. Input minimization and pre-fill recommendations
+4. Engineering fixes for low-effort, recoverable workflows</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="low-bandwidth">
+        <h3>Low Bandwidth</h3>
+        <p>Unreliable or slow internet access is a daily reality for people in rural areas, lower-income households, or regions with poor infrastructure. Bandwidth constraints shape what is usable, making performance and progressive loading a core accessibility concern.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Low Bandwidth">Copy</button>
+          <pre>You are designing and building a digital product for users with low bandwidth or unstable internet connections.
+
+Review the interface and:
+- Identify resources that block rendering or require large downloads before interaction is possible
+- Implement progressive loading so core content and actions are available immediately
+- Provide graceful degradation when assets fail to load
+- Avoid auto-loading video, large images, or non-essential scripts on page entry
+- Support offline or cached states for key tasks where feasible
+- Ensure session timeouts are generous and data is preserved if a connection drops
+- Validate WCAG 2.2 AA compliance for 2.2.1 and performance best practices
+
+Return:
+1. Render-blocking and heavy asset risks
+2. Progressive loading and degradation patterns
+3. Offline and retry state recommendations
+4. Engineering fixes for bandwidth-resilient experiences</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="low-literacy">
+        <h3>Low Literacy</h3>
+        <p>Reading financial content at a high literacy level is not universally possible. People managing low literacy, due to education, disability, or language background, need plain language, visual support, and clear step-by-step guidance to complete tasks with confidence.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Low Literacy">Copy</button>
+          <pre>You are designing and building a digital product for users with low literacy needs.
+
+Review the interface and:
+- Identify content written above a Grade 8 reading level
+- Rewrite instructions, labels, and error messages in plain, direct language
+- Support text-to-speech for all content including form labels and error messages
+- Replace jargon and financial terminology with plain equivalents or include clear definitions
+- Use icons and visual cues alongside text to reinforce meaning
+- Structure content in short sentences with one idea per sentence
+- Validate WCAG 2.2 AA compliance for 3.1.3, 3.1.5, and 3.3.2
+
+Return:
+1. Reading complexity and jargon risks
+2. Plain language rewrite recommendations
+3. Visual support and iconography patterns
+4. Engineering fixes for readable, scannable content</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="migraine-sensitivity">
+        <h3>Migraine Sensitivity</h3>
+        <p>Bright screens, flashing elements, and high-contrast patterns can trigger or worsen migraine episodes. People managing migraines may need to limit screen time entirely during an attack, making quick, low-stimulation task completion essential.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Migraine Sensitivity">Copy</button>
+          <pre>You are designing and building a digital product for people with migraine sensitivity.
+
+Review the interface and:
+- Identify flashing content, flickering elements, and high-frequency visual patterns
+- Support dark mode and low-brightness display options
+- Avoid stark white backgrounds and high-contrast strobing patterns
+- Minimize required steps so tasks can be completed during limited screen time
+- Ensure all motion respects the prefers-reduced-motion media query
+- Avoid bright color combinations that create visual vibration
+- Validate WCAG 2.2 AA compliance for 2.3.1 and 2.3.3
+
+Return:
+1. Visual trigger risks
+2. Dark mode and low-stimulation design patterns
+3. Task efficiency improvements for limited screen time
+4. Engineering fixes for flicker and high-contrast motion</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="motion-sensitivity">
+        <h3>Motion Sensitivity</h3>
+        <p>Scrolling, zooming, or animated interfaces can trigger dizziness, nausea, or disorientation. For people with vestibular disorders, migraine, or anxiety, motion in digital environments is not decorative. It can be a barrier that ends a session entirely.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Motion Sensitivity">Copy</button>
+          <pre>You are designing and building a digital product for people with motion sensitivity, including those with vestibular disorders, migraine, or anxiety triggered by screen motion.
+
+Review the interface and:
+- Identify all animations, transitions, parallax effects, and auto-playing motion
+- Ensure the prefers-reduced-motion media query disables or reduces all non-essential motion
+- Replace motion-based feedback with static visual alternatives
+- Avoid auto-playing carousels and looping animations
+- Provide user controls to pause or disable motion independently of system settings
+- Validate WCAG 2.2 AA compliance for 2.3.3 and 2.2.2
+
+Return:
+1. Motion and animation risks
+2. Reduced-motion implementation patterns
+3. Static alternative feedback designs
+4. Engineering fixes using prefers-reduced-motion</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="non-native-speaker">
+        <h3>Non-Native Speaker</h3>
+        <p>Navigating a financial product in a second language requires more cognitive effort, especially under pressure. Complex terminology, idioms, and dense instructions create real barriers for people whose primary language differs from the product's default language.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Non-Native Speaker">Copy</button>
+          <pre>You are designing and building a digital product for users whose primary language differs from the product's default language.
+
+Review the interface and:
+- Identify idioms, culturally specific references, and financial jargon with no plain equivalent
+- Ensure all UI labels, error messages, and instructions translate accurately without truncation
+- Set the correct lang attribute on the HTML element and on any language-specific content
+- Avoid relying on culturally specific metaphors or expressions in microcopy
+- Test layouts with translated strings, which are often significantly longer than English
+- Support right-to-left text rendering where relevant
+- Validate WCAG 2.2 AA compliance for 3.1.1 and 3.1.2
+
+Return:
+1. Language and localization risks
+2. Translation-safe label and microcopy patterns
+3. Layout recommendations for variable text length
+4. Engineering fixes for multilingual and RTL support</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="one-handed-use">
+        <h3>One-Handed Use</h3>
+        <p>Holding a phone while managing a child, an injury, or a physical task is a daily reality for many people. Interfaces that require two-handed gestures or simultaneous inputs create barriers for anyone operating with one hand, permanently or situationally.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for One-Handed Use">Copy</button>
+          <pre>You are designing and building a digital product for users operating with one hand, whether due to a permanent condition, temporary injury, or situational constraint.
+
+Review the interface and:
+- Identify interactions requiring simultaneous inputs, two-finger gestures, or both hands
+- Position primary actions within the thumb-reachable zone for single-handed mobile use
+- Provide single-tap or single-key alternatives for every multi-input interaction
+- Ensure all gestures have a single-point activation alternative
+- Avoid long-press as the only trigger for important actions
+- Test all critical flows using only one finger on a mobile device
+- Validate WCAG 2.2 AA compliance for 2.5.1 and 2.5.4
+
+Return:
+1. Two-handed interaction risks
+2. Thumb-zone and single-tap design patterns
+3. Gesture alternative recommendations
+4. Engineering fixes for single-input operability</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="temporary-injury">
+        <h3>Temporary Injury</h3>
+        <p>A broken wrist, eye surgery recovery, or repetitive strain injury temporarily changes how someone interacts with technology. These users need the same accessible alternatives available to permanent disability users, just discovered in an urgent, unexpected moment.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Temporary Injury">Copy</button>
+          <pre>You are designing and building a digital product for users with a temporary injury affecting their ability to use standard input methods.
+
+Review the interface and:
+- Ensure all tasks are completable using keyboard only, voice control, or a single pointing device
+- Identify interactions that assume standard two-handed or fine motor input
+- Provide clear onboarding for alternative input methods without requiring prior experience
+- Avoid reliance on drag-and-drop, multi-key shortcuts, or precise pointer interactions
+- Ensure focus order is logical and all interactive elements are reachable by Tab
+- Test all critical flows without a mouse using keyboard and voice navigation only
+- Validate WCAG 2.2 AA compliance for 2.1.1, 2.1.2, and 2.5.1
+
+Return:
+1. Input dependency risks for users without fine motor control
+2. Keyboard and voice navigation patterns
+3. Alternative input onboarding recommendations
+4. Engineering fixes for mouse-independent task completion</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+    </section>
+
+    <!-- MENTAL HEALTH -->
+    <section class="category" aria-labelledby="cat-mental-health">
+      <h2 class="category-heading" id="cat-mental-health">Mental Health</h2>
+
+      <div class="condition" id="anxiety">
+        <h3>Anxiety</h3>
+        <p>High-stakes financial tasks compound existing anxiety. Unclear error messages, irreversible actions, ambiguous confirmations, and unpredictable system behavior all increase stress responses. Design that communicates clearly, confirms before acting, and reduces uncertainty directly lowers the cognitive and emotional cost of task completion.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Anxiety">Copy</button>
+          <pre>You are designing and building a digital product for people with anxiety, particularly in high-stakes financial contexts.
+
+Review the interface and:
+- Identify error messages that use alarming, urgent, or ambiguous language
+- Ensure every destructive or irreversible action requires explicit confirmation
+- Provide clear feedback after every user action so the system state is always known
+- Avoid unexpected system behavior, modal interruptions, or surprise redirects
+- Use calm, plain, non-threatening language throughout all system messages
+- Ensure undo is available wherever possible for actions that feel high-risk
+- Validate WCAG 2.2 AA compliance for 3.3.1, 3.3.4, and 3.2.1
+
+Return:
+1. Alarming language and uncertainty risks
+2. Confirmation and feedback pattern recommendations
+3. Calm microcopy and error message rewrites
+4. Engineering fixes for predictable, low-pressure interactions</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="bipolar-disorder">
+        <h3>Bipolar Disorder</h3>
+        <p>Mood episodes affect energy, concentration, impulsivity, and risk tolerance in ways that shift over time. During depressive phases, low motivation and cognitive slowing make complex tasks difficult. During manic phases, impulsive decisions need guardrails. Consistent design, confirmation steps, and undo functionality support safe, autonomous use.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Bipolar Disorder">Copy</button>
+          <pre>You are designing and building a digital product for people with bipolar disorder whose interaction needs shift across depressive and manic episodes.
+
+Review the interface and:
+- Require explicit confirmation for all high-value or irreversible financial actions
+- Provide undo or reversal options wherever technically feasible
+- Break complex workflows into small, manageable steps accessible during low-energy states
+- Avoid design patterns that encourage rapid sequential decisions without pause points
+- Do not require users to self-disclose or identify their current state to access support features
+- Ensure autosave protects partially completed work during session interruption
+- Validate WCAG 2.2 AA compliance for 2.2.1, 3.3.4, and 3.2.2
+
+Return:
+1. Impulsivity and irreversibility risks
+2. Confirmation and undo implementation patterns
+3. Low-effort workflow recommendations for depressive states
+4. Engineering guardrails for high-stakes financial actions</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="depression">
+        <h3>Depression</h3>
+        <p>Low energy, reduced motivation, and difficulty concentrating are not barriers to intent, they are barriers to completion. Long workflows, repetitive inputs, and high error costs create conditions where tasks are started but not finished. Streamlined flows, autosave, and plain encouraging language reduce the effort required to succeed.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Depression">Copy</button>
+          <pre>You are designing and building a digital product for people with depression, where motivation and energy to complete tasks may be significantly reduced.
+
+Review the interface and:
+- Identify workflows that require more steps than necessary to complete a core task
+- Implement autosave so incomplete sessions can be resumed without data loss
+- Show visible progress indicators throughout all multi-step flows
+- Pre-fill known information to minimize repeated data entry
+- Use plain, encouraging language that does not shame errors or abandoned sessions
+- Avoid dark patterns that add friction or require extra effort to complete a task
+- Validate WCAG 2.2 AA compliance for 2.2.1, 3.3.1, and 3.3.7
+
+Return:
+1. Effort and motivation barriers
+2. Progress and autosave implementation patterns
+3. Encouraging microcopy recommendations
+4. Engineering fixes for streamlined, low-effort task completion</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="panic-disorder">
+        <h3>Panic Disorder</h3>
+        <p>A panic attack can occur without warning and end a session immediately. Interfaces that feel urgent, use alarming error language, or present too much information at once can trigger or escalate distress. Calm, predictable, and low-pressure design patterns create safer conditions for task completion.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Panic Disorder">Copy</button>
+          <pre>You are designing and building a digital product for people with panic disorder.
+
+Review the interface and:
+- Remove or replace countdown timers and urgency-inducing UI patterns
+- Ensure every screen has a clear, visible exit or back path
+- Use calm, measured language in all system messages, errors, and confirmations
+- Avoid high-density screens that present many options or warnings simultaneously
+- Never use language that implies irreversible consequences without a confirmation step
+- Provide session extension options before any timeout rather than abrupt termination
+- Validate WCAG 2.2 AA compliance for 2.2.1, 2.2.4, and 3.3.4
+
+Return:
+1. Urgency and pressure trigger risks
+2. Calm interaction and exit pattern recommendations
+3. Microcopy tone and language improvements
+4. Engineering fixes for low-pressure, escapable flows</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="sobriety">
+        <h3>Sobriety</h3>
+        <p>Recovery from substance use intersects with digital access in ways that are often overlooked. Content that normalizes alcohol, financial stress triggers, or high-pressure decision environments can be destabilizing. Trauma-informed design, content sensitivity, and predictable low-stress interactions support users managing long-term recovery.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Sobriety">Copy</button>
+          <pre>You are designing and building a digital product using trauma-informed design principles for people managing sobriety and recovery from substance use.
+
+Review the interface and:
+- Identify content that uses shame-based, urgent, or high-pressure language around finances
+- Ensure debt notices, overdue alerts, and upsell prompts are delivered calmly and constructively
+- Avoid normalizing alcohol or substance use in imagery, language, or promotional content
+- Provide clear, calm error recovery that does not amplify stress or assign blame
+- Design notification timing and frequency to avoid overwhelming users during vulnerable moments
+- Support user control over when and how sensitive financial information is surfaced
+- Reference Intuit trauma-informed design principles throughout
+
+Return:
+1. Stress trigger and shame language risks
+2. Calm, constructive communication patterns
+3. Content sensitivity recommendations
+4. Engineering controls for user-managed sensitive content display</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+    </section>
+
+    <!-- NEURODIVERSITY -->
+    <section class="category" aria-labelledby="cat-neurodiversity">
+      <h2 class="category-heading" id="cat-neurodiversity">Neurodiversity</h2>
+
+      <div class="condition" id="adhd">
+        <h3>ADHD</h3>
+        <p>Sustaining attention through long, undifferentiated workflows is a genuine challenge, not a preference. Distracting animations, unclear progress, and interfaces that do not signal where to focus next create conditions where tasks are abandoned before completion, not from disinterest but from cognitive mismatch.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for ADHD">Copy</button>
+          <pre>You are designing and building a digital product for people with ADHD.
+
+Review the interface and:
+- Identify autoplay media, ambient animations, and visual noise that compete for attention
+- Provide clear progress indicators that show current position and remaining steps
+- Break tasks into short, focused steps with one primary action per screen
+- Ensure transcripts are available for all video and meeting content for self-paced review
+- Implement autosave so interrupted sessions can be resumed without penalty
+- Use clear visual hierarchy to direct focus to the most important action on each screen
+- Validate WCAG 2.2 AA compliance for 2.2.2, 2.4.6, and 3.3.1
+
+Return:
+1. Distraction and attention fragmentation risks
+2. Focus and progress indicator patterns
+3. Transcript and self-paced content recommendations
+4. Engineering fixes for low-distraction, resumable workflows</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="autism-spectrum">
+        <h3>Autism Spectrum</h3>
+        <p>Autistic users may experience sensory input, social communication, and predictability differently. Unexpected UI changes, ambiguous language, sensory-heavy animations, and interactions requiring implicit social inference create friction that consistent, literal, and calm design can reduce.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Autism Spectrum">Copy</button>
+          <pre>You are designing and building a digital product for Autistic users.
+
+Review the interface and:
+- Identify ambiguous labels, vague calls to action, and microcopy that implies rather than states
+- Ensure every action clearly communicates what will happen before the user commits
+- Remove unexpected modal interruptions, layout shifts, and autoplay animations
+- Use literal, direct language throughout and avoid idioms, metaphors, or implied social norms
+- Maintain consistent navigation, layout, and interaction patterns across all screens
+- Provide advance warning before any action that changes the current state significantly
+- Validate WCAG 2.2 AA compliance for 2.2.2, 3.2.1, 3.2.2, and 3.3.2
+
+Return:
+1. Ambiguity, unpredictability, and sensory risks
+2. Literal language and clear action pattern recommendations
+3. Layout consistency and predictability improvements
+4. Engineering fixes for warning-first, stable interfaces</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="dyslexia">
+        <h3>Dyslexia</h3>
+        <p>Letter reversal, tracking difficulty, and slow decoding make dense text-heavy interfaces cognitively exhausting. Font choice, line spacing, plain language, and the ability to hear content read aloud reduce the effort required to extract meaning and complete tasks accurately.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Dyslexia">Copy</button>
+          <pre>You are designing and building a digital product for people with dyslexia.
+
+Review the interface and:
+- Identify justified text, small fonts, tight line spacing, and dense text blocks
+- Use left-aligned text, generous line height, and adequate letter spacing throughout
+- Support text-to-speech for all content including labels, instructions, and error messages
+- Break content into short paragraphs with clear headings and white space between sections
+- Avoid italics for body text and use underline only for links, not emphasis
+- Ensure font size meets minimum requirements and is scalable without layout breakage
+- Validate WCAG 2.2 AA compliance for 1.4.4, 1.4.8, and 1.4.12
+
+Return:
+1. Typography and reading difficulty risks
+2. Font, spacing, and layout improvement recommendations
+3. Text-to-speech support patterns
+4. Engineering fixes for dyslexia-friendly reading environments</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+    </section>
+
+    <!-- PHYSICAL -->
+    <section class="category" aria-labelledby="cat-physical">
+      <h2 class="category-heading" id="cat-physical">Physical</h2>
+
+      <div class="condition" id="acute-pain">
+        <h3>Acute Pain</h3>
+        <p>Active pain disrupts focus, reduces tolerance for friction, and shortens the time available for a task. Interactions that require extended screen time, complex navigation, or repeated fine motor input become disproportionately difficult when pain is present and unpredictable.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Acute Pain">Copy</button>
+          <pre>You are designing and building a digital product for people managing acute pain who need to complete tasks quickly with minimal physical effort.
+
+Review the interface and:
+- Identify flows requiring sustained fine motor input, extended session time, or repeated actions
+- Minimize the number of interactions required to complete each core task
+- Ensure all interactions are operable by keyboard or voice with no mouse dependency
+- Provide large, well-spaced touch targets that reduce precision requirements
+- Implement autosave so sessions can be abandoned and resumed without loss
+- Prioritize task efficiency over feature richness on critical paths
+- Validate WCAG 2.2 AA compliance for 2.1.1, 2.5.5, and 2.5.8
+
+Return:
+1. Fine motor and effort barriers
+2. Task efficiency and input minimization patterns
+3. Large target and keyboard navigation recommendations
+4. Engineering fixes for low-effort, pain-tolerant interactions</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="chronic-fatigue">
+        <h3>Chronic Fatigue</h3>
+        <p>Energy is not unlimited. Conditions like ME/CFS, multiple sclerosis, or lupus mean that a task requiring many steps, repetitive inputs, or high concentration can exhaust the available capacity for the day. Efficiency, autosave, and minimal required effort are not conveniences, they are access requirements.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Chronic Fatigue">Copy</button>
+          <pre>You are designing and building a digital product for people with chronic fatigue conditions including ME/CFS, multiple sclerosis, and lupus.
+
+Review the interface and:
+- Identify workflows that cannot be paused, saved, and resumed across multiple sessions
+- Implement autosave as a default throughout all multi-step tasks
+- Minimize required inputs by pre-filling known data and reducing redundant steps
+- Avoid session timeouts that clear form data without prior warning and save option
+- Provide clear progress indicators so users know how much effort remains
+- Ensure all core tasks are completable in the fewest possible steps
+- Validate WCAG 2.2 AA compliance for 2.2.1, 3.3.7, and 3.3.1
+
+Return:
+1. Energy and effort barrier risks
+2. Autosave and session resumption patterns
+3. Input minimization and pre-fill recommendations
+4. Engineering fixes for energy-efficient, resumable workflows</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="limited-dexterity">
+        <h3>Limited Dexterity</h3>
+        <p>Tremors, reduced grip strength, or restricted hand movement make precise pointer control unreliable. Small click targets, drag-and-drop interactions, and time-limited actions create compounding barriers where a single missed input can force the entire task to restart.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Limited Dexterity">Copy</button>
+          <pre>You are designing and building a digital product for people with limited dexterity due to tremors, reduced grip strength, or restricted hand movement.
+
+Review the interface and:
+- Identify touch targets smaller than 44x44px and increase them to meet minimum size requirements
+- Remove drag-and-drop as the only method for any interaction and provide button alternatives
+- Eliminate hover-only menus and ensure all content is accessible without hover
+- Remove time limits on interactions or provide generous extension options
+- Implement undo for all destructive or hard-to-reverse actions
+- Ensure accidental activation of adjacent targets does not cause irreversible actions
+- Validate WCAG 2.2 AA compliance for 2.5.5, 2.5.8, 2.2.1, and 2.5.2
+
+Return:
+1. Small target and precision interaction risks
+2. Touch target sizing and spacing recommendations
+3. Drag-and-drop alternative patterns
+4. Engineering fixes for forgiving, error-tolerant input</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="limb-loss">
+        <h3>Limb Loss</h3>
+        <p>The absence of a limb reshapes every interaction with a keyboard, trackpad, or touchscreen. Workflows designed around two-handed input, standard mouse use, or precise pointer control may become unusable without voice input, switch access, or single-handed keyboard alternatives.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Limb Loss">Copy</button>
+          <pre>You are designing and building a digital product for people with limb loss who rely on voice input, switch access, or single-handed keyboard navigation.
+
+Review the interface and:
+- Identify multi-key shortcuts, two-handed gestures, and simultaneous input requirements
+- Ensure all tasks are fully operable using keyboard only or voice control alone
+- Replace drag-and-drop interactions with keyboard-accessible alternatives
+- Test all critical flows using a single input device including switch access simulation
+- Ensure focus order is logical and all interactive elements are reachable without a mouse
+- Provide voice control labels for all interactive elements that match their visible label
+- Validate WCAG 2.2 AA compliance for 2.1.1, 2.1.2, 2.5.1, and 2.5.3
+
+Return:
+1. Multi-input and two-handed interaction risks
+2. Single-input and voice navigation patterns
+3. Switch access and keyboard-only flow recommendations
+4. Engineering fixes for fully single-input operable interfaces</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="paralysis">
+        <h3>Paralysis</h3>
+        <p>Full or partial paralysis requires complete reliance on alternative input methods such as eye tracking, switch access, voice control, or head pointer devices. Every interaction that assumes standard keyboard or pointer use becomes a hard barrier when those input paths are unavailable.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Paralysis">Copy</button>
+          <pre>You are designing and building a digital product for people with paralysis who rely on eye tracking, switch access, voice control, or head pointer devices.
+
+Review the interface and:
+- Ensure every interaction is fully operable without a mouse or touchscreen
+- Verify logical, efficient focus order across all interactive elements
+- Test all flows using switch access simulation with single and dual switch modes
+- Ensure focus indicators are clearly visible and meet WCAG 2.2 AA contrast requirements
+- Avoid keyboard traps and ensure users can always navigate forward and backward
+- Minimize the number of Tab stops required to reach critical actions
+- Validate WCAG 2.2 AA compliance for 2.1.1, 2.1.2, 2.4.3, 2.4.7, and 2.4.11
+
+Return:
+1. Mouse and touch dependency risks
+2. Focus order and keyboard navigation patterns
+3. Switch access and eye tracking compatibility recommendations
+4. Engineering fixes for fully alternative-input operable interfaces</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+    </section>
+
+    <!-- SPEECH -->
+    <section class="category" aria-labelledby="cat-speech">
+      <h2 class="category-heading" id="cat-speech">Speech</h2>
+
+      <div class="condition" id="aphasia">
+        <h3>Aphasia</h3>
+        <p>Aphasia affects the ability to produce, find, or organize language, often following stroke or brain injury. Reading dense instructions, composing text, or navigating language-heavy interfaces requires significantly more effort. Simplified language, icon reinforcement, and reduced text input demands directly support access.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Aphasia">Copy</button>
+          <pre>You are designing and building a digital product for people with aphasia who have difficulty producing, retrieving, or organizing language.
+
+Review the interface and:
+- Identify free-text input fields and replace or supplement them with structured options where possible
+- Use short, simple sentences for all labels, instructions, and error messages
+- Reinforce all text labels with icons to reduce language processing load
+- Avoid open-ended text entry as the only method for completing a task
+- Support AAC device compatibility by ensuring all interactive elements have accessible names
+- Provide ample time for input with no session timeouts on forms
+- Validate WCAG 2.2 AA compliance for 2.2.1, 3.1.3, 3.1.5, and 3.3.2
+
+Return:
+1. Language production and input barriers
+2. Structured input alternative patterns
+3. Icon reinforcement and plain language recommendations
+4. Engineering fixes for low-text, AAC-compatible interactions</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="speech-disability">
+        <h3>Speech Disability</h3>
+        <p>Stuttering, dysarthria, selective mutism, or other speech differences affect how reliably voice input is recognized. Interfaces that require spoken commands or voice verification as the only input path exclude anyone whose speech pattern falls outside the model's training data.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Speech Disability">Copy</button>
+          <pre>You are designing and building a digital product for people with speech disabilities including stuttering, dysarthria, and selective mutism.
+
+Review the interface and:
+- Identify every voice-dependent interaction including authentication, commands, and input fields
+- Provide a text or keyboard alternative for every voice interaction at equal prominence
+- Do not use voice recognition as the sole method for authentication or verification
+- Ensure AI assistants and voice features fail gracefully with a clear non-voice fallback
+- Avoid penalizing slow, interrupted, or atypical speech patterns in voice recognition systems
+- Test voice input features with non-standard speech patterns where possible
+- Validate WCAG 2.2 AA compliance for 2.1.1 and 3.3.2
+
+Return:
+1. Voice-only dependency risks
+2. Text and keyboard alternative patterns
+3. Authentication fallback recommendations
+4. Engineering fixes for speech-independent task completion</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+    </section>
+
+    <!-- VISUAL -->
+    <section class="category" aria-labelledby="cat-visual">
+      <h2 class="category-heading" id="cat-visual">Visual</h2>
+
+      <div class="condition" id="blind">
+        <h3>Blind</h3>
+        <p>Blind users navigate digital interfaces without any visual reference, requiring a completely non-visual mental model. Screen readers, keyboard navigation, and Braille displays translate structure into meaning but only when that structure is correctly coded and consistently maintained.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Blind">Copy</button>
+          <pre>You are designing and building a digital product for Blind users who navigate entirely without visual reference using screen readers, Braille displays, and keyboard navigation.
+
+Review the interface and:
+- Ensure every interactive element has a descriptive, meaningful accessible name
+- Provide alt text for all images, icons, and non-text content
+- Verify logical reading and focus order that reflects visual layout intent
+- Use semantic HTML elements so screen readers can communicate structure correctly
+- Ensure all functionality is operable by keyboard with no mouse dependency
+- Provide transcripts for all video and audio content as a navigation-friendly alternative
+- Validate WCAG 2.2 AA compliance for 1.1.1, 1.3.1, 2.1.1, 2.4.3, and 4.1.2
+
+Return:
+1. Screen reader and keyboard navigation barriers
+2. Semantic structure and alt text recommendations
+3. Focus order and ARIA implementation patterns
+4. Engineering fixes for fully non-visual task completion</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="cataracts">
+        <h3>Cataracts</h3>
+        <p>Clouded lenses scatter light and reduce contrast, making sharp, high-contrast content essential for legibility. Bright glare from white backgrounds can worsen visibility. Clear typography, adjustable display settings, and high-contrast modes directly reduce the daily friction of using digital products.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Cataracts">Copy</button>
+          <pre>You are designing and building a digital product for people with cataracts who experience reduced contrast sensitivity and increased glare.
+
+Review the interface and:
+- Identify text and UI elements that fall below WCAG AA contrast thresholds
+- Avoid pure white backgrounds and consider off-white or light gray base colors to reduce glare
+- Use bold, legible fonts at sufficient size with adequate line spacing
+- Provide a high-contrast mode that significantly increases contrast ratios throughout
+- Ensure thin icon strokes and light UI borders are thickened for visibility
+- Support dark mode as an alternative to bright backgrounds
+- Validate WCAG 2.2 AA compliance for 1.4.3, 1.4.6, and 1.4.11
+
+Return:
+1. Contrast and glare risks
+2. Typography and contrast improvement recommendations
+3. High contrast and dark mode implementation patterns
+4. Engineering fixes for glare-reduced, high-legibility interfaces</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="color-blindness">
+        <h3>Color Blindness</h3>
+        <p>When color is the only signal distinguishing success from error, or active from inactive, critical information disappears. Red-green confusion is most common, but all types of color vision deficiency require interfaces that use shape, label, and pattern alongside color.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Color Blindness">Copy</button>
+          <pre>You are designing and building a digital product for people with color blindness including red-green, blue-yellow, and monochromacy variants.
+
+Review the interface and:
+- Identify every instance where color is the sole means of conveying information
+- Add text labels, icons, or patterns alongside all color-coded status indicators
+- Ensure error and success states are distinguishable without relying on red and green alone
+- Test all data visualizations, charts, and graphs using a color blindness simulator
+- Verify that form validation, alerts, and required field indicators use non-color cues
+- Check that link text is distinguishable from body text by more than color alone
+- Validate WCAG 2.2 AA compliance for 1.4.1 and 1.4.3
+
+Return:
+1. Color-only information risks
+2. Pattern, label, and icon alternative recommendations
+3. Data visualization accessible color patterns
+4. Engineering fixes for color-independent status communication</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="glaucoma">
+        <h3>Glaucoma</h3>
+        <p>Peripheral vision loss narrows the usable field of view over time, often without early warning. Interfaces that place critical actions, labels, or alerts at the edges of the screen may be completely invisible, even when central vision remains functional.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Glaucoma">Copy</button>
+          <pre>You are designing and building a digital product for people with glaucoma who have reduced or absent peripheral vision.
+
+Review the interface and:
+- Identify critical actions, alerts, and error messages positioned at screen edges
+- Move primary navigation, calls to action, and error indicators to the central visual zone
+- Avoid placing time-sensitive notifications only in peripheral screen locations
+- Ensure toast notifications and inline errors are positioned centrally or announced by screen reader
+- Test all critical flows by masking peripheral screen areas to simulate tunnel vision
+- Ensure screen reader announcements provide equivalent access to peripherally placed content
+- Validate WCAG 2.2 AA compliance for 1.3.1, 1.4.3, and 4.1.3
+
+Return:
+1. Peripheral placement risks for critical content
+2. Central zone layout and alert positioning recommendations
+3. Screen reader announcement patterns for edge-placed content
+4. Engineering fixes for central-vision-friendly interface layout</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="low-vision">
+        <h3>Low Vision</h3>
+        <p>For low vision users, text that is too small, too low in contrast, or that breaks apart when zoomed creates an immediate barrier. Magnification tools and display adjustments help, but only when layouts are designed to scale without losing content or alignment.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Low Vision">Copy</button>
+          <pre>You are designing and building a digital product for low vision users who rely on magnification, high contrast settings, and scalable text.
+
+Review the interface and:
+- Ensure all layouts reflow correctly at 400% zoom without horizontal scrolling
+- Use relative units for font sizes so text scales with user browser settings
+- Verify all text meets WCAG AA contrast ratios and test at AAA for body text
+- Ensure all icons have visible text labels and are not the sole means of conveying action
+- Test the interface using browser zoom and OS magnification tools at multiple levels
+- Support high contrast mode without loss of content or functionality
+- Validate WCAG 2.2 AA compliance for 1.4.3, 1.4.4, 1.4.10, and 1.4.11
+
+Return:
+1. Zoom, reflow, and contrast risks
+2. Scalable layout and text resizing patterns
+3. Icon labeling and high contrast mode recommendations
+4. Engineering fixes for magnification-compatible interfaces</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="temporary-blindness">
+        <h3>Temporary Blindness</h3>
+        <p>Post-surgery recovery, acute injury, or medical treatment can remove usable vision for days or weeks. This is often the first moment someone encounters a screen reader or keyboard-only navigation, making first-use clarity and learnability critical design requirements.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Temporary Blindness">Copy</button>
+          <pre>You are designing and building a digital product for people experiencing temporary blindness due to surgery, injury, or medical treatment, many of whom are using a screen reader for the first time.
+
+Review the interface and:
+- Ensure all tasks are completable by keyboard and screen reader without prior experience
+- Provide clear, consistent heading structure that allows screen reader navigation by heading
+- Ensure focus indicators are visible and focus order is logical throughout
+- Avoid custom interaction patterns that deviate from expected screen reader behavior
+- Test all critical flows using a screen reader in browse mode and forms mode
+- Provide transcripts as an alternative to audio and video for users new to screen readers
+- Validate WCAG 2.2 AA compliance for 1.3.1, 2.1.1, 2.4.3, 2.4.6, and 4.1.2
+
+Return:
+1. First-time screen reader experience barriers
+2. Heading structure and keyboard navigation patterns
+3. Onboarding and discoverability recommendations for assistive technology
+4. Engineering fixes for standard, predictable screen reader behavior</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+      <div class="condition" id="visual-field-loss">
+        <h3>Visual Field Loss</h3>
+        <p>Damage to the visual field, whether central, peripheral, or patchy, means content positioned outside the functional zone is missed entirely. Navigation, alerts, and form errors placed outside the central viewing area may never be seen, regardless of visual acuity.</p>
+        <div class="code-wrapper">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt for Visual Field Loss">Copy</button>
+          <pre>You are designing and building a digital product for people with visual field loss, including central, peripheral, and patchy field damage.
+
+Review the interface and:
+- Identify error messages, tooltips, and status updates placed outside the central content area
+- Ensure all critical feedback is positioned adjacent to the triggering element and announced by screen reader
+- Avoid relying on peripheral screen locations for time-sensitive or error-state content
+- Test all form validation patterns to confirm errors appear in the user's likely focus zone
+- Provide screen reader announcements as a redundant channel for all visual feedback
+- Avoid requiring users to scan the full screen to confirm an action was successful
+- Validate WCAG 2.2 AA compliance for 1.3.1, 3.3.1, 3.3.3, and 4.1.3
+
+Return:
+1. Out-of-field content placement risks
+2. Inline error and feedback positioning patterns
+3. Screen reader announcement recommendations for visual feedback
+4. Engineering fixes for field-loss-tolerant content placement</pre>
+        </div>
+        <a class="back-top" href="#contents">&#8593; Back to top</a>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<script>
+  function copyPrompt(btn) {
+    const pre = btn.nextElementSibling;
+    navigator.clipboard.writeText(pre.textContent).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = "Copied";
+      setTimeout(() => { btn.textContent = orig; }, 1800);
+    });
+  }
+</script>
+
+</body>
+</html>
