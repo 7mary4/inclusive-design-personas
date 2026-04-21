@@ -1,6 +1,6 @@
 # Inclusive Design Persona Cards
 
-A printable, accessible web application featuring 40 research-backed persona cards for inclusive design practice.
+A printable, accessible web application featuring 40 research-backed persona cards for inclusive design practice. This was created for an inclusive design week at Mailchimp in 2026.
 
 ---
 
@@ -152,4 +152,6 @@ This application is built to meet **WCAG 2.2 Level AA**. Key implementation deta
 
 ## License
 
-<!-- Add your license here -->
+[Creative Commons Zero v1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+This work is in the public domain. Use it freely — no permission, attribution, or credit required.
